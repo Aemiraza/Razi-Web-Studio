@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Razi Web Studio — High-Converting AI-Powered Web Experiences</title>
+  <meta name="description" content="Personal portfolio of Razi, founder of Razi Web Studio. We engineer futuristic, ultra-fast, high-converting landing pages and AI-powered web systems for ambitious local businesses." />
+  <meta name="keywords" content="Razi Web Studio, AI Web Design, High Converting Landing Pages, Conversion Rate Optimization, UI/UX Agency, Luxury Web Design, Performance Optimization" />
+  <meta name="theme-color" content="#08080A" />
+
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:title" content="Razi Web Studio — Next-Gen AI Web Design & High-Conversion Funnels" />
+  <meta property="og:description" content="Transforming local businesses with futuristic, ultra-fast landing pages that turn clicks into revenue." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/razi-avatar.jpg" />
+
+  <link rel="icon" type="image/jpeg" href="assets/images/razi-logo-emoji.jpg" />
+
+  <!-- Google Fonts: Outfit (Luxury Geometric Display), Inter (Clean Editorial Body), JetBrains Mono (Tech Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Ambient Dynamic Canvas & Glowing Background Lights -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <div class="ambient-lights" aria-hidden="true">
+    <div class="ambient-orb orb-violet"></div>
+    <div class="ambient-orb orb-cyan"></div>
+    <div class="ambient-orb orb-mid"></div>
+  </div>
+  <div class="mesh-grid" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <div class="site-wrap">
+
+    <!-- ======================================================================
+         SITE HEADER & NAVIGATION
+         ====================================================================== -->
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        
+        <!-- Logo -->
+        <a href="#hero" class="brand-logo" aria-label="Razi Web Studio Home">
+          <div class="brand-logo-emblem emoji-emblem">
+            <img src="assets/images/razi-logo-emoji.jpg" alt="Razi Web Studio Logo" class="brand-logo-icon" />
+          </div>
+          <div class="brand-text-wrap">
+            <span class="brand-name">RAZI</span>
+            <span class="brand-sub">WEB STUDIO</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <a href="#work" class="nav-link">
+            Live Work <span class="nav-badge">4</span>
+          </a>
+          <a href="#services" class="nav-link">Capabilities</a>
+          <a href="#why-me" class="nav-link">The Difference</a>
+          <a href="#guarantee" class="nav-link">Guarantee</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Right Action Controls -->
+        <div class="header-actions">
+          <div class="status-badge" title="Accepting new client sprints for Q4">
+            <span class="status-pulse-dot"></span>
+            <span>SPRINT SLOTS OPEN</span>
+          </div>
+          <button class="btn btn-primary header-call-btn" onclick="openBookingModal()" aria-label="Book Strategy Call">
+            <span class="cta-text-full">Book Strategy Call</span>
+            <span class="cta-text-short">Book Call</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
+      <a href="#work" class="mobile-nav-link">
+        <span>Featured Work</span>
+        <span class="nav-badge">4 Live Demos</span>
+      </a>
+      <a href="#services" class="mobile-nav-link">Core Services & Stack</a>
+      <a href="#why-me" class="mobile-nav-link">Why Razi Web Studio</a>
+      <a href="#guarantee" class="mobile-nav-link">Satisfaction Guarantee</a>
+      <a href="#contact" class="mobile-nav-link">Start a Project</a>
+      <div style="margin-top: 10px;">
+        <button class="btn btn-primary" style="width: 100%;" onclick="openBookingModal()">
+          <span>Book a Free Strategy Call</span>
+        </button>
+      </div>
+    </div>
+
+    <main>
+
+      <!-- ====================================================================
+           1. HERO SECTION (2026 TRENDING AESTHETIC)
+           ==================================================================== -->
+      <section class="section hero-section" id="hero">
+        <div class="container">
+          <div class="hero-grid">
+            
+            <!-- Left Copy Column -->
+            <div class="hero-copy-col">
+              
+              <!-- Eyebrow Pill -->
+              <div class="hero-eyebrow-wrap">
+                <div class="hero-pill-badge">
+                  <span class="sparkle-icon">✦</span>
+                  <span class="hero-pill-text">2026 Next-Gen Web Architecture &bull; AI Conversion</span>
+                </div>
+              </div>
+
+              <!-- Massive Dynamic Headline -->
+              <h1 class="hero-headline">
+                We Build High-Converting <br />
+                <span class="text-gradient">AI-Powered Web</span> Experiences.
+              </h1>
+
+              <!-- Subheadline -->
+              <p class="hero-subheadline">
+                Transforming local businesses with futuristic, ultra-fast landing pages that turn clicks into revenue. Designed to outrank competitors and capture high-intent inquiries effortlessly.
+              </p>
+
+              <!-- Dual CTA Buttons -->
+              <div class="hero-cta-group">
+                <a href="#work" class="btn btn-primary btn-lg">
+                  <span>View Live Work</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+                </a>
+                <button class="btn btn-secondary btn-lg" onclick="openBookingModal()">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span>Book a Free Strategy Call</span>
+                </button>
+              </div>
+
+              <!-- Trust & Verification Bar -->
+              <div class="hero-trust-bar">
+                <div class="trust-item">
+                  <div class="trust-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  </div>
+                  <div class="trust-content">
+                    <span class="trust-val">48-Hour</span>
+                    <span class="trust-label">Sprint Turnaround</span>
+                  </div>
+                </div>
+
+                <div class="trust-item">
+                  <div class="trust-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  </div>
+                  <div class="trust-content">
+                    <span class="trust-val">&lt; 0.9s</span>
+                    <span class="trust-label">Instant Edge Speed</span>
+                  </div>
+                </div>
+
+                <div class="trust-item">
+                  <div class="trust-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                  <div class="trust-content">
+                    <span class="trust-val">100%</span>
+                    <span class="trust-label">Satisfaction Promise</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Interactive 3D Holographic Tech Element -->
+            <div class="hero-visual-col">
+              <div class="hero-3d-stage">
+                
+                <!-- Interactive 3D Canvas -->
+                <canvas id="hero-interactive-canvas" title="Interactive 3D Mesh — Click and drag to spin!"></canvas>
+
+                <!-- Floating Hologram Badges -->
+                <div class="floating-badge badge-top-left">
+                  <div class="badge-icon-box violet">⚡</div>
+                  <div class="badge-info">
+                    <span class="badge-headline">99/100 Vitals</span>
+                    <span class="badge-caption">Zero-Bloat Speed</span>
+                  </div>
+                </div>
+
+                <div class="floating-badge badge-bottom-right">
+                  <div class="badge-icon-box cyan">🤖</div>
+                  <div class="badge-info">
+                    <span class="badge-headline">AI Funnel Engine</span>
+                    <span class="badge-caption">Self-Optimizing UX</span>
+                  </div>
+                </div>
+
+                <div class="floating-badge badge-bottom-left">
+                  <div class="badge-icon-box green">📈</div>
+                  <div class="badge-info">
+                    <span class="badge-headline">+142% Avg Lift</span>
+                    <span class="badge-caption">Inquiry Conversion</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. LIVE PORTFOLIO / CASE STUDIES GRID (THE 4 DEMO PROJECTS)
+           ==================================================================== -->
+      <section class="section" id="work">
+        <div class="container">
+          
+          <div class="section-header reveal-init">
+            <div class="section-eyebrow">
+              <span class="dot"></span>
+              <span>[ 01 // PROVEN LIVE TRACK RECORD ]</span>
+            </div>
+            <h2 class="section-title">
+              Featured Case Studies &amp; <span class="text-gradient">Live Deployments</span>
+            </h2>
+            <p class="section-subtitle">
+              Every client project is custom-engineered from raw code to achieve top-tier visual prestige, instant edge load times, and ruthless conversion performance.
+            </p>
+          </div>
+
+          <!-- The Bento Portfolio Showcase -->
+          <div class="portfolio-bento-grid">
+            
+            <!-- CARD 1: Aura Dental Studio -->
+            <article class="project-card tilt-card reveal-init reveal-delay-1" id="project-aura-dental">
+              <div class="project-media-wrapper">
+                <img 
+                  src="assets/images/card-aura-dental.png" 
+                  alt="Aura Dental Studio Luxury Minimalist Dental Landing Page" 
+                  class="project-img" 
+                  loading="lazy" 
+                />
+                <div class="project-media-overlay">
+                  <div class="project-top-row">
+                    <span class="project-badge-pill">LUXURY HEALTHCARE</span>
+                    <span class="project-number">01 / 04</span>
+                  </div>
+                </div>
+                <div class="project-hover-trigger">
+                  <button class="btn btn-primary btn-sm" onclick="openProjectPreview('dental')">
+                    <span>Quick Preview ↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="project-card-body">
+                <div class="project-tags-list">
+                  <span class="project-tag highlight">Cosmetic Dentistry</span>
+                  <span class="project-tag cyan">Interactive Smile Simulator</span>
+                  <span class="project-tag green">+142% Bookings</span>
+                </div>
+
+                <h3 class="project-title">
+                  <span>Aura Dental Studio</span>
+                </h3>
+                <div class="project-niche">Luxury Minimalist Dental Landing Page</div>
+
+                <p class="project-description">
+                  Tailored for high-end aesthetic dentists seeking high-ticket porcelain veneer and clear aligner patients. Includes interactive before-and-after smile transformation visualizer and effortless VIP consultation booking.
+                </p>
+
+                <div class="project-metric-row">
+                  <div class="pm-item">
+                    <span class="pm-value">+142%</span>
+                    <span class="pm-label">Inquiry Lift</span>
+                  </div>
+                  <div class="pm-item">
+                    <span class="pm-value">0.8s</span>
+                    <span class="pm-label">Edge Load</span>
+                  </div>
+                  <div class="pm-item">
+                    <span class="pm-value">99/100</span>
+                    <span class="pm-label">Mobile Score</span>
+                  </div>
+                </div>
+
+                <div class="project-actions-row">
+                  <button class="btn btn-secondary btn-sm" onclick="openProjectPreview('dental')">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Interactive Live Preview</span>
+                  </button>
+                  <a href="https://aemiraza.github.io/Aura-Dental-Studio/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                    <span>Full Site ↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 2: Vanguard Luxury Estates -->
+            <article class="project-card tilt-card reveal-init reveal-delay-2" id="project-vanguard">
+              <div class="project-media-wrapper">
+                <img 
+                  src="assets/images/card-vanguard-estates.png" 
+                  alt="Vanguard Luxury Estates Cinematic Real Estate Platform" 
+                  class="project-img" 
+                  loading="lazy" 
+                />
+                <div class="project-media-overlay">
+                  <div class="project-top-row">
+                    <span class="project-badge-pill">ULTRA-LUXURY REAL ESTATE</span>
+                    <span class="project-number">02 / 04</span>
+                  </div>
+                </div>
+                <div class="project-hover-trigger">
+                  <button class="btn btn-primary btn-sm" onclick="openProjectPreview('estates')">
+                    <span>Quick Preview ↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="project-card-body">
+                <div class="project-tags-list">
+                  <span class="project-tag highlight">Ultra-Luxury</span>
+                  <span class="project-tag cyan">Cinematic Architecture</span>
+                  <span class="project-tag green">$45M+ Showcase</span>
+                </div>
+
+                <h3 class="project-title">
+                  <span>Vanguard Luxury Estates</span>
+                </h3>
+                <div class="project-niche">Cinematic Real Estate Platform</div>
+
+                <p class="project-description">
+                  Cinematic digital experience built for premier real estate developers and UHNW brokerages. Features twilight architectural video backgrounds, private vault listing decks, and automated concierge showing requests.
+                </p>
+
+                <div class="project-metric-row">
+                  <div class="pm-item">
+                    <span class="pm-value">$45M+</span>
+                    <span class="pm-label">Portfolio Value</span>
+                  </div>
+                  <div class="pm-item">
+                    <span class="pm-value">3.4x</span>
+                    <span class="pm-label">Dwell Time</span>
+                  </div>
+                  <div class="pm-item">
+                    <span class="pm-value">UHNW</span>
+                    <span class="pm-label">VIP Concierge</span>
+                  </div>
+                </div>
+
+                <div class="project-actions-row">
+                  <button class="btn btn-secondary btn-sm" onclick="openProjectPreview('estates')">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Interactive Live Preview</span>
+                  </button>
+                  <a href="https://aemiraza.github.io/Vanguard-Luxury-Estates/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                    <span>Full Site ↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 3: HydroShield 24/7 -->
+            <article class="project-card tilt-card reveal-init reveal-delay-3" id="project-hydroshield">
+              <div class="project-media-wrapper">
+                <img 
+                  src="assets/images/card-hydroshield.png" 
+                  alt="HydroShield Emergency Plumbing Service Landing Page" 
+                  class="project-img" 
+                  loading="lazy" 
+                />
+                <div class="project-media-overlay">
+                  <div class="project-top-row">
+                    <span class="project-badge-pill">EMERGENCY SERVICES</span>
+                    <span class="project-number">03 / 04</span>
+                  </div>
+                </div>
+                <div class="project-hover-trigger">
+                  <button class="btn btn-primary btn-sm" onclick="openProjectPreview('plumbing')">
+                    <span>Quick Preview ↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="project-card-body">
+                <div class="project-tags-list">
+                  <span class="project-tag highlight">Panic-Proof UX</span>
+                  <span class="project-tag cyan">1-Tap Emergency Dispatch</span>
+                  <span class="project-tag green">Sub-1.2s Load</span>
+                </div>
+
+                <h3 class="project-title">
+                  <span>HydroShield 24/7</span>
+                </h3>
+                <div class="project-niche">High-Trust Emergency Plumbing Service</div>
+
+                <p class="project-description">
+                  High-urgency conversion engine designed to turn burst-pipe panic callers into confirmed appointments in under 60 seconds. Features instant mobile tap-to-dispatch, live fleet radius indicator, and transparent upfront pricing.
+                </p>
+
+                <div class="project-metric-row">
+                  <div class="pm-item">
+                    <span class="pm-value">&lt; 60s</span>
+                    <span class="pm-label">Booking Speed</span>
+                  </div>
+                  <div class="pm-item">
+                    <span class="pm-value">94%</span>
+                    <span class="pm-label">Win Rate</span>
+                  </div>
+                  <div class="pm-item">
+                    <span class="pm-value">100%</span>
+                    <span class="pm-label">Mobile First</span>
+                  </div>
+                </div>
+
+                <div class="project-actions-row">
+                  <button class="btn btn-secondary btn-sm" onclick="openProjectPreview('plumbing')">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Interactive Live Preview</span>
+                  </button>
+                  <a href="https://aemiraza.github.io/HydroShield-Emergency-Plumbing/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                    <span>Full Site ↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- CARD 4: Sparkle & Shine -->
+            <article class="project-card tilt-card reveal-init reveal-delay-4" id="project-sparkle">
+              <div class="project-media-wrapper">
+                <img 
+                  src="assets/images/card-sparkle-shine.png" 
+                  alt="Sparkle &amp; Shine Eco-Cleaning Landing Page" 
+                  class="project-img" 
+                  loading="lazy" 
+                />
+                <div class="project-media-overlay">
+                  <div class="project-top-row">
+                    <span class="project-badge-pill">ECO-LIVING &bull; SAAS VIBE</span>
+                    <span class="project-number">04 / 04</span>
+                  </div>
+                </div>
+                <div class="project-hover-trigger">
+                  <button class="btn btn-primary btn-sm" onclick="openProjectPreview('cleaning')">
+                    <span>Quick Preview ↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="project-card-body">
+                <div class="project-tags-list">
+                  <span class="project-tag highlight">Eco-Friendly</span>
+                  <span class="project-tag cyan">Instant Price Calculator</span>
+                  <span class="project-tag green">Recurring Subs</span>
+                </div>
+
+                <h3 class="project-title">
+                  <span>Sparkle &amp; Shine</span>
+                </h3>
+                <div class="project-niche">Modern Eco-Cleaning SaaS-Vibe Page</div>
+
+                <p class="project-description">
+                  SaaS-inspired residential cleaning funnel that replaces vague contact forms with a transparent 60-second quote calculator. Boosts recurring bi-weekly and monthly cleaner subscriptions automatically.
+                </p>
+
+                <div class="project-metric-row">
+                  <div class="pm-item">
+                    <span class="pm-value">60 Sec</span>
+                    <span class="pm-label">Instant Quote</span>
+                  </div>
+                  <div class="pm-item">
+                    <span class="pm-value">38%</span>
+                    <span class="pm-label">Recurring Subs</span>
+                  </div>
+                  <div class="pm-item">
+                    <span class="pm-value">Zero</span>
+                    <span class="pm-label">Friction UI</span>
+                  </div>
+                </div>
+
+                <div class="project-actions-row">
+                  <button class="btn btn-secondary btn-sm" onclick="openProjectPreview('cleaning')">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Interactive Live Preview</span>
+                  </button>
+                  <a href="https://aemiraza.github.io/Sparkle-Shine-Eco-Cleaning-Co/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                    <span>Full Site ↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           3. CORE SERVICES & SKILLS STACK (OPTIMIZED FOR CLIENT PITCHING)
+           ==================================================================== -->
+      <section class="section" id="services">
+        <div class="container">
+          
+          <div class="section-header reveal-init">
+            <div class="section-eyebrow">
+              <span class="dot"></span>
+              <span>[ 02 // CAPABILITIES &amp; ARCHITECTURE ]</span>
+            </div>
+            <h2 class="section-title">
+              Core Services Built for <span class="text-gradient">Exponential ROI</span>
+            </h2>
+            <p class="section-subtitle">
+              We don't build generic corporate brochure sites. We engineer high-velocity sales engines powered by modern web tech, zero-bloat code, and AI personalization.
+            </p>
+          </div>
+
+          <!-- Services Bento Grid -->
+          <div class="services-bento-grid">
+            
+            <!-- Service 1: AI-Powered Landing Pages & High-Conversion Funnels -->
+            <div class="service-bento-card glass-card reveal-init reveal-delay-1">
+              <div class="service-icon-wrap">
+                <span>🤖</span>
+              </div>
+              <h3 class="service-title">AI-Powered Landing Pages &amp; High-Conversion Funnels</h3>
+              <p class="service-desc">
+                Intelligent landing pages tailored to match incoming visitor intent. From automated visitor qualification to personalized dynamic copy and smart lead scoring, we turn cold traffic into pre-sold buyers.
+              </p>
+
+              <ul class="service-feature-list">
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Dynamic intent-based headline &amp; offer personalization
+                </li>
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Interactive multi-step qualification quizzes that filter tire-kickers
+                </li>
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Frictionless 1-tap booking &amp; checkout architecture
+                </li>
+              </ul>
+
+              <!-- Interactive Funnel Simulator Mini-Demo -->
+              <div class="service-mini-interactive">
+                <div class="mono-tag" style="margin-bottom: 8px; color: var(--accent-cyan-bright);">Live AI Funnel Simulator:</div>
+                <div class="ai-funnel-demo-nav">
+                  <button class="funnel-tab-btn active" data-target="clinic">Cosmetic Clinic</button>
+                  <button class="funnel-tab-btn" data-target="estate">Luxury Estate</button>
+                  <button class="funnel-tab-btn" data-target="emergency">Emergency 24/7</button>
+                  <button class="funnel-tab-btn" data-target="cleaning">Eco-Home Care</button>
+                </div>
+                <div class="funnel-display-box" id="funnel-output-display">
+> [INCOMING TRAFFIC: COSMETIC DENTAL INQUIRY]
+> AI Step 1: Scans patient photo preference (Veneers vs Aligners)
+> AI Step 2: Pre-qualifies financing ($5k - $15k case value)
+> AI Step 3: Books 3D Virtual Consult directly to Dr.'s calendar
+> [RESULT: 72% booked rate within 90 seconds]
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 2: Mobile-First Responsive UI/UX Design -->
+            <div class="service-bento-card glass-card reveal-init reveal-delay-2">
+              <div class="service-icon-wrap">
+                <span>📱</span>
+              </div>
+              <h3 class="service-title">Mobile-First Responsive UI/UX Design</h3>
+              <p class="service-desc">
+                85%+ of local business traffic happens on smartphones with distracted thumbs. We architect ultra-ergonomic mobile interfaces with instant touch feedback, fluid gestures, and zero layout shift.
+              </p>
+
+              <ul class="service-feature-list">
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Thumb-zone optimized CTAs positioned for zero reach fatigue
+                </li>
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Glassmorphic micro-interactions &amp; tactile button states
+                </li>
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Fluid responsive scaling across 320px to 4K Ultra-Wide
+                </li>
+              </ul>
+
+              <div class="service-mini-interactive">
+                <div class="mono-tag" style="margin-bottom: 8px; color: #a855f7;">Viewport Adaptive Engine:</div>
+                <div style="display: flex; gap: 8px; align-items: center; justify-content: space-between;">
+                  <span style="font-size: 0.8rem; color: #cbd5e1;">Mobile Ergonomics Standard:</span>
+                  <span class="mono-tag" style="background: rgba(16,185,129,0.15); color: #34d399; padding: 4px 10px; border-radius: 6px;">100% Touch Compliant</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 3: Speed Optimization & Instant Load Architecture -->
+            <div class="service-bento-card glass-card reveal-init reveal-delay-3">
+              <div class="service-icon-wrap">
+                <span>⚡</span>
+              </div>
+              <h3 class="service-title">Speed Optimization &amp; Instant Load Architecture</h3>
+              <p class="service-desc">
+                Every 100ms delay costs 7% in lost conversions. We eliminate bloated CMS plugins and heavy libraries, shipping clean, handcrafted modern web code delivered via global edge networks.
+              </p>
+
+              <ul class="service-feature-list">
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Sub-1-second Largest Contentful Paint (LCP) guaranteed
+                </li>
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> 99+ Google Lighthouse Green Scores on both Mobile &amp; Desktop
+                </li>
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Next-Gen WebP/AVIF media pipeline with zero CLS shifts
+                </li>
+              </ul>
+
+              <!-- Live Lighthouse Score Meter Simulation -->
+              <div class="service-mini-interactive">
+                <div class="mono-tag" style="margin-bottom: 12px; color: var(--accent-emerald);">Audited Google Lighthouse Standard:</div>
+                <div class="lighthouse-score-row">
+                  <div class="lh-item">
+                    <div class="lh-ring">100</div>
+                    <span class="lh-label">Perf</span>
+                  </div>
+                  <div class="lh-item">
+                    <div class="lh-ring">100</div>
+                    <span class="lh-label">Access</span>
+                  </div>
+                  <div class="lh-item">
+                    <div class="lh-ring">100</div>
+                    <span class="lh-label">Best</span>
+                  </div>
+                  <div class="lh-item">
+                    <div class="lh-ring">100</div>
+                    <span class="lh-label">SEO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 4: Local Business Lead Generation Setup -->
+            <div class="service-bento-card glass-card reveal-init reveal-delay-4">
+              <div class="service-icon-wrap">
+                <span>🎯</span>
+              </div>
+              <h3 class="service-title">Local Business Lead Generation Setup</h3>
+              <p class="service-desc">
+                A gorgeous page is useless if it doesn't ring your cash register. We connect your landing page directly into automated SMS/WhatsApp alerts, CRM pipelines, and local Google search discovery.
+              </p>
+
+              <ul class="service-feature-list">
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Instant 5-second SMS &amp; WhatsApp dispatch directly to your phone
+                </li>
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> CRM synchronization (HubSpot, GoHighLevel, Zapier, Webhooks)
+                </li>
+                <li class="service-feature-item">
+                  <span class="check-icon">&check;</span> Google Local Pack schema &amp; high-intent local conversion hooks
+                </li>
+              </ul>
+
+              <div class="service-mini-interactive">
+                <div class="mono-tag" style="margin-bottom: 8px; color: #38bdf8;">Lead Pipeline Speed:</div>
+                <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #a7f3d0; background: rgba(0,0,0,0.5); padding: 8px 12px; border-radius: 6px; display: flex; align-items: center; gap: 8px;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                  <span>Average Lead Notification Time: <strong>1.8s</strong></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Supporting Tech Stack Strip -->
+          <div class="tech-capabilities-bar reveal-init">
+            <div class="tech-bar-header">
+              <span class="tech-bar-title">&lt;TECHNOLOGY STACK &bull; 2026 ARCHITECTURE/&gt;</span>
+              <span class="mono-tag" style="color: var(--accent-cyan-bright);">Engineered for speed &bull; Zero bloat</span>
+            </div>
+            <div class="tech-badges-grid">
+              <span class="tech-badge"><span>🌐</span> Modern HTML5 Semantic Standards</span>
+              <span class="tech-badge"><span>🎨</span> Pure Vanilla CSS &amp; Glassmorphic Tokens</span>
+              <span class="tech-badge"><span>⚡</span> ESNext Asynchronous Event Architecture</span>
+              <span class="tech-badge"><span>✨</span> WebGL &amp; Canvas 3D Particle Systems</span>
+              <span class="tech-badge"><span>🔒</span> Cloudflare Global Edge CDN &amp; SSL</span>
+              <span class="tech-badge"><span>🤖</span> OpenAI / Claude API Intent Parsing</span>
+              <span class="tech-badge"><span>🚀</span> Google PageSpeed 99+ Core Web Vitals</span>
+              <span class="tech-badge"><span>📱</span> Mobile Viewport Ergonomics</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           4. SOCIAL PROOF / WHY WORK WITH ME SECTION
+           ==================================================================== -->
+      <section class="section" id="why-me">
+        <div class="container">
+          
+          <div class="section-header center reveal-init">
+            <div class="section-eyebrow">
+              <span class="dot"></span>
+              <span>[ 03 // THE VALUE PROPOSITION ]</span>
+            </div>
+            <h2 class="section-title">
+              Why High-Growth Businesses <br />
+              <span class="text-gradient">Partner With Razi</span>
+            </h2>
+            <p class="section-subtitle">
+              Direct founder collaboration. Zero junior delegate fluff. Relentless obsession with turning your digital traffic into profitable customer relationships.
+            </p>
+          </div>
+
+          <!-- Clean Metrics Bar (4 Pillars) -->
+          <div class="metrics-pill-bar reveal-init">
+            <div class="metric-pill-card">
+              <div class="metric-pillar-icon">⚡</div>
+              <div class="metric-pillar-title">48-Hour Delivery</div>
+              <div class="metric-pillar-subtitle">Rapid sprint turnaround for initial build without months of agonizing meetings.</div>
+            </div>
+
+            <div class="metric-pill-card">
+              <div class="metric-pillar-icon">📱</div>
+              <div class="metric-pillar-title">100% Mobile Optimized</div>
+              <div class="metric-pillar-subtitle">Engineered specifically for the modern thumb-scroll reality where 85%+ of revenue is won.</div>
+            </div>
+
+            <div class="metric-pill-card">
+              <div class="metric-pillar-icon">🎯</div>
+              <div class="metric-pillar-title">Conversion-Focused</div>
+              <div class="metric-pillar-subtitle">Every button, headline, and contrast ratio mathematically placed to maximize inbound pipeline.</div>
+            </div>
+
+            <div class="metric-pill-card">
+              <div class="metric-pillar-icon">⭐</div>
+              <div class="metric-pillar-title">99+ Core Web Vitals</div>
+              <div class="metric-pillar-subtitle">Blazing fast green-score performance that Google rewards with lower CPC and higher organic rank.</div>
+            </div>
+          </div>
+
+          <!-- Founder Bento Layout -->
+          <div class="founder-bento-grid">
+            
+            <!-- Left: Founder Spotlight Profile Card -->
+            <div class="founder-profile-card glass-card reveal-init">
+              <div class="founder-avatar-wrap">
+                <img src="assets/images/razi-avatar-3d.jpg" alt="Razi — Founder of Razi Web Studio" class="founder-avatar-img" />
+                <div class="founder-live-status" title="Active & Ready for New Sprints"></div>
+              </div>
+
+              <h3 class="founder-name">Razi</h3>
+              <div class="founder-role">Founder &amp; Lead Creative Technologist</div>
+              <div class="founder-location-pill">
+                <span>📍 Worldwide &bull; Remote Delivery</span>
+                <span>&bull;</span>
+                <span style="color: #34d399;">● Online</span>
+              </div>
+
+              <p style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin-bottom: 24px;">
+                "I founded Razi Web Studio with one clear conviction: local business websites should look as prestigious as Apple and convert as ruthlessly as top-tier Silicon Valley SaaS funnels."
+              </p>
+
+              <div class="founder-socials-row">
+                <a href="https://wa.me/923147576733" target="_blank" rel="noopener" class="social-circle-btn" title="WhatsApp: +92-314-7576733">
+                  💬
+                </a>
+                <a href="https://www.instagram.com/Aemi_raza/" target="_blank" rel="noopener" class="social-circle-btn" title="Instagram: @Aemi_raza">
+                  📸
+                </a>
+                <a href="mailto:aemiansari76@gmail.com" class="social-circle-btn copy-email-trigger" title="Email: aemiansari76@gmail.com">
+                  ✉️
+                </a>
+                <button class="social-circle-btn" onclick="openBookingModal()" title="Schedule 20-Min Call">
+                  📅
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Founder Manifesto & 100% Satisfaction Guarantee -->
+            <div class="founder-statement-card glass-card reveal-init" id="guarantee">
+              <div>
+                <div class="mono-tag" style="color: var(--accent-violet-bright); margin-bottom: 14px;">THE STUDIO MANIFESTO</div>
+                <div class="statement-quote">
+                  Traditional agencies charge $15,000, take 3 months, and hand you a bloated, slow WordPress template that barely gets a lead. At Razi Web Studio, I personally architect every line of code. You get enterprise-grade visual authority and an AI-charged conversion engine in days, not months.
+                </div>
+              </div>
+
+              <!-- Client Satisfaction Promise Box -->
+              <div class="promise-guarantee-box">
+                <div class="promise-icon">🛡️</div>
+                <div class="promise-content">
+                  <h4>100% Client Satisfaction Promise</h4>
+                  <p>
+                    If your new landing page does not demonstrably improve your brand authority, mobile speed, and user engagement within 30 days of launch, we revise and optimize it at zero cost until you are completely thrilled. No excuses, no fine print.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Verified Testimonial Highlights Grid -->
+          <div class="client-testimonials-row reveal-init">
+            
+            <div class="testimonial-card">
+              <div class="test-stars">★★★★★</div>
+              <div class="test-text">
+                "Razi transformed our dental clinic's online presence completely. Our high-value cosmetic consultation bookings jumped by 142% in our very first 60 days."
+              </div>
+              <div class="test-author-info">
+                <div class="test-author-details">
+                  <span class="test-author-name">Dr. Marcus Vance</span>
+                  <span class="test-author-role">Founder, Aura Dental Studio</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="test-stars">★★★★★</div>
+              <div class="test-text">
+                "The cinematic visual depth and sub-second load speeds set us leagues ahead of traditional real estate brokers. Ultra-HNW inquiries are up 3.4x."
+              </div>
+              <div class="test-author-info">
+                <div class="test-author-details">
+                  <span class="test-author-name">Elena Rostova</span>
+                  <span class="test-author-role">Partner, Vanguard Luxury Estates</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="test-stars">★★★★★</div>
+              <div class="test-text">
+                "In emergency plumbing, seconds decide whether a customer calls us or a competitor. The 1-tap dispatch flow captured jobs that used to bounce away."
+              </div>
+              <div class="test-author-info">
+                <div class="test-author-details">
+                  <span class="test-author-name">Dave Kellinger</span>
+                  <span class="test-author-role">Operations, HydroShield 24/7</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. INTERACTIVE CONTACT / BOOKING FOOTER
+           ==================================================================== -->
+      <section class="section contact-section" id="contact">
+        <div class="container">
+          
+          <div class="section-header reveal-init">
+            <div class="section-eyebrow">
+              <span class="dot"></span>
+              <span>[ 04 // INITIATE YOUR SPRINT ]</span>
+            </div>
+            <h2 class="section-title">
+              Let's Build Your <span class="text-gradient">Digital Growth Engine</span>
+            </h2>
+            <p class="section-subtitle">
+              Ready to outpace your competition with an ultra-fast, high-converting digital experience? Submit your brief below or reach out directly for a same-day response.
+            </p>
+          </div>
+
+          <!-- Contact Bento Grid -->
+          <div class="contact-bento-grid">
+            
+            <!-- Left: Interactive Lead Capture Form -->
+            <div class="lead-form-card glass-card reveal-init">
+              
+              <!-- Success State Overlay -->
+              <div class="form-success-overlay" id="form-success-overlay">
+                <div class="success-icon-ring">✓</div>
+                <h3 style="font-size: 1.6rem; color: #ffffff; margin-bottom: 10px;">Inquiry Dispatched Successfully!</h3>
+                <p style="font-size: 0.95rem; color: #94a3b8; max-width: 440px; margin-bottom: 24px; line-height: 1.6;">
+                  Thank you! Razi has received your project brief directly. Expect an in-depth video review or response within <strong>35 minutes</strong>.
+                </p>
+                <button class="btn btn-secondary btn-sm" id="reset-form-btn">
+                  <span>Send Another Inquiry</span>
+                </button>
+              </div>
+
+              <form id="lead-capture-form" autocomplete="off">
+                
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label for="lead-name" class="form-label">
+                      <span>Full Name</span>
+                      <span class="req">*</span>
+                    </label>
+                    <input type="text" id="lead-name" name="name" class="form-input" placeholder="e.g. Alex Morgan" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lead-email" class="form-label">
+                      <span>Email Address</span>
+                      <span class="req">*</span>
+                    </label>
+                    <input type="email" id="lead-email" name="email" class="form-input" placeholder="alex@business.com" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="lead-website" class="form-label">
+                    <span>Business Website / Industry URL</span>
+                    <span style="color: #64748b;">(Optional)</span>
+                  </label>
+                  <input type="text" id="lead-website" name="website" class="form-input" placeholder="https://yourbrand.com or industry niche" />
+                </div>
+
+                <!-- Project Budget Radio Selector Pills -->
+                <div class="form-group">
+                  <label class="form-label">
+                    <span>Project Investment Range</span>
+                    <span class="req">*</span>
+                  </label>
+                  <div class="budget-pills-grid">
+                    <label class="budget-pill-label">
+                      <input type="radio" name="project-budget" value="starter" />
+                      <div class="budget-pill-box">
+                        <span>$1,500 – $3,000</span>
+                      </div>
+                    </label>
+                    <label class="budget-pill-label">
+                      <input type="radio" name="project-budget" value="growth" checked />
+                      <div class="budget-pill-box">
+                        <span>$3,000 – $6,000</span>
+                      </div>
+                    </label>
+                    <label class="budget-pill-label">
+                      <input type="radio" name="project-budget" value="scale" />
+                      <div class="budget-pill-box">
+                        <span>$6,000 – $12,000</span>
+                      </div>
+                    </label>
+                    <label class="budget-pill-label">
+                      <input type="radio" name="project-budget" value="enterprise" />
+                      <div class="budget-pill-box">
+                        <span>$12,000+ (Custom)</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="lead-details" class="form-label">
+                    <span>Project Goals &amp; Overview</span>
+                  </label>
+                  <textarea id="lead-details" name="message" class="form-textarea" placeholder="Tell us about your target audience, current bottlenecks, or desired launch timeline..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" id="lead-submit-btn" style="width: 100%;">
+                  <span>🚀 Launch Project Inquiry</span>
+                </button>
+
+                <div class="form-footer-guarantee">
+                  <span>🔒 100% Privacy Guaranteed</span>
+                  <span>&bull;</span>
+                  <span>⚡ Same-Day Founder Response</span>
+                  <span>&bull;</span>
+                  <span>📅 Free 20-Min Strategy Call</span>
+                </div>
+
+              </form>
+            </div>
+
+            <!-- Right: Direct Channels & Fast Booking Card -->
+            <div class="direct-contact-card glass-card reveal-init">
+              
+              <div class="direct-card-header">
+                <h3>Prefer Immediate Contact?</h3>
+                <p>
+                  Connect directly with founder Razi across your preferred channel. We typically respond within 35 minutes during business hours.
+                </p>
+              </div>
+
+              <!-- Direct Channels List -->
+              <div class="direct-channels-list">
+                
+                <!-- WhatsApp Direct -->
+                <a href="https://wa.me/923147576733" target="_blank" rel="noopener" class="channel-item-link" title="Direct WhatsApp Chat">
+                  <div class="channel-left">
+                    <div class="channel-icon whatsapp">💬</div>
+                    <div class="channel-meta">
+                      <span class="channel-name">WhatsApp Direct</span>
+                      <span class="channel-handle">+92-314-7576733 &bull; Instant Chat</span>
+                    </div>
+                  </div>
+                  <span style="color: var(--accent-cyan-bright); font-size: 1.1rem;">&rarr;</span>
+                </a>
+
+                <!-- Instagram Direct -->
+                <a href="https://www.instagram.com/Aemi_raza/" target="_blank" rel="noopener" class="channel-item-link" title="Instagram Profile">
+                  <div class="channel-left">
+                    <div class="channel-icon instagram">📸</div>
+                    <div class="channel-meta">
+                      <span class="channel-name">Instagram Direct</span>
+                      <span class="channel-handle">@Aemi_raza &bull; DM for Inquiries</span>
+                    </div>
+                  </div>
+                  <span style="color: var(--accent-cyan-bright); font-size: 1.1rem;">&rarr;</span>
+                </a>
+
+                <!-- Email Direct -->
+                <a href="mailto:aemiansari76@gmail.com" class="channel-item-link copy-email-trigger" title="Send Email / Click to Copy">
+                  <div class="channel-left">
+                    <div class="channel-icon email">✉️</div>
+                    <div class="channel-meta">
+                      <span class="channel-name">Official Gmail Inbox</span>
+                      <span class="channel-handle">aemiansari76@gmail.com &bull; Click to Send</span>
+                    </div>
+                  </div>
+                  <span style="color: var(--accent-cyan-bright); font-size: 0.8rem; font-family: var(--font-mono);">MAIL</span>
+                </a>
+
+              </div>
+
+              <!-- Direct 20-Min Discovery Call Pitch Box -->
+              <div class="strategy-call-pitch-box">
+                <h4>
+                  <span>📅</span>
+                  <span>Schedule a 20-Min Strategy Session</span>
+                </h4>
+                <p>
+                  Have a complex requirement? Let's hop on a fast Zoom call to review your current site and map out your custom 2026 conversion roadmap.
+                </p>
+                <button class="btn btn-secondary btn-sm" onclick="openBookingModal()" style="align-self: flex-start;">
+                  <span>Select Time Slot &rarr;</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ======================================================================
+         FOOTER & LEGAL STRIP
+         ====================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        
+        <div class="footer-top-row">
+          <a href="#hero" class="brand-logo" aria-label="Razi Web Studio Home">
+            <div class="brand-logo-emblem emoji-emblem">
+              <img src="assets/images/razi-logo-emoji.jpg" alt="Razi Web Studio Logo" class="brand-logo-icon" />
+            </div>
+            <div class="brand-text-wrap">
+              <span class="brand-name">RAZI</span>
+              <span class="brand-sub">WEB STUDIO</span>
+            </div>
+          </a>
+
+          <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+            <a href="#work" class="nav-link">Live Work</a>
+            <a href="#services" class="nav-link">Capabilities</a>
+            <a href="#why-me" class="nav-link">The Guarantee</a>
+            <a href="#contact" class="nav-link">Get in Touch</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom-row">
+          <div>
+            &copy; 2026 Razi Web Studio. Handcrafted with obsession. All rights reserved.
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+            <span class="local-time-pill">
+              <span>🕒</span>
+              <span id="live-local-time">Loading local time...</span>
+            </span>
+            <span>Obsidian Edition #08080A</span>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ======================================================================
+       INTERACTIVE LIVE PROJECT MODAL DRAWER (WITH DEVICE TOGGLES)
+       ====================================================================== -->
+  <div class="preview-modal-backdrop" id="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-project-title">
+    <div class="preview-modal-container">
+      
+      <!-- Top Browser Control Bar -->
+      <div class="modal-header-bar">
+        
+        <div class="modal-left-meta">
+          <div class="modal-project-title" id="preview-project-title">Project Showcase</div>
+          <div class="modal-simulated-url">
+            <span>🔒 https://</span>
+            <span id="preview-url-display">preview.razi.studio</span>
+          </div>
+        </div>
+
+        <!-- Responsive Viewport Mode Switcher -->
+        <div class="device-toggle-group">
+          <button class="device-btn active" data-mode="desktop" title="Desktop View (100%)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span>Desktop</span>
+          </button>
+          <button class="device-btn" data-mode="tablet" title="Tablet View (768px)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            <span>Tablet</span>
+          </button>
+          <button class="device-btn" data-mode="mobile" title="Mobile View (390px)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            <span>Mobile</span>
+          </button>
+        </div>
+
+        <!-- Right Modal Actions -->
+        <div class="modal-right-actions">
+          <a href="#" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" id="preview-external-link" title="Open full project in new tab">
+            <span>Launch Full Tab ↗</span>
+          </a>
+          <button class="modal-close-btn" id="modal-close-btn" aria-label="Close preview modal">
+            &times;
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Viewport Frame Area -->
+      <div class="modal-viewport-area">
+        <div class="viewport-frame-wrapper mode-desktop" id="viewport-frame">
+          <iframe 
+            src="about:blank" 
+            id="preview-iframe" 
+            class="preview-iframe" 
+            title="Live Interactive Project Preview"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       STRATEGY CALL BOOKING MODAL
+       ====================================================================== -->
+  <div class="booking-modal-backdrop" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+    <div class="booking-modal-card">
+      <button class="modal-close-btn" id="booking-close-btn" style="position: absolute; top: 20px; right: 20px;" aria-label="Close booking modal">
+        &times;
+      </button>
+
+      <div class="section-eyebrow" style="margin-bottom: 12px;">
+        <span class="dot"></span>
+        <span>FREE 20-MINUTE AUDIT</span>
+      </div>
+      <h3 id="booking-modal-title" style="font-size: 1.5rem; color: #ffffff; margin-bottom: 8px;">
+        Book Your Strategy Call With Razi
+      </h3>
+      <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 20px;">
+        We'll analyze your current landing page, review conversion leakage, and outline an exact high-ROI architecture for your local business.
+      </p>
+
+      <div class="mono-tag" style="color: var(--accent-cyan-bright); margin-bottom: 8px;">Select Desired Sprint Slot:</div>
+      <div class="calendar-slots-grid">
+        <button class="time-slot-btn active">Tomorrow 10:00 AM</button>
+        <button class="time-slot-btn">Tomorrow 2:00 PM</button>
+        <button class="time-slot-btn">Tomorrow 4:30 PM</button>
+        <button class="time-slot-btn">Thursday 11:30 AM</button>
+        <button class="time-slot-btn">Thursday 3:00 PM</button>
+        <button class="time-slot-btn">Friday 1:00 PM</button>
+      </div>
+
+      <div class="form-group" style="margin-top: 14px;">
+        <label class="form-label" for="booking-email">Your Work Email</label>
+        <input type="email" id="booking-email" class="form-input" placeholder="you@business.com" />
+      </div>
+
+      <button class="btn btn-primary" id="confirm-call-btn" style="width: 100%; margin-top: 12px;">
+        <span>Confirm Strategy Call &rarr;</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="assets/js/canvas-visual.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
