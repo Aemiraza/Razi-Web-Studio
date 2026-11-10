@@ -10,13 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
      1. SCROLL DETECTION FOR STICKY HEADER
      -------------------------------------------------------------------------- */
   const siteHeader = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      siteHeader.classList.add('scrolled');
-    } else {
-      siteHeader.classList.remove('scrolled');
-    }
-  }, { passive: true });
+  if (siteHeader) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
 
   /* --------------------------------------------------------------------------
      2. MOBILE MENU DRAWER
@@ -26,10 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileToggle && mobileMenu) {
     mobileToggle.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Close on link click
     mobileMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
@@ -39,10 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-     3. SMOOTH CURSOR GLOW FOLLOWER (GPU COMPOSITED & IDLE PAUSED)
+     3. SMOOTH CURSOR GLOW FOLLOWER (DESKTOP POINTER ONLY)
      -------------------------------------------------------------------------- */
   const cursorGlow = document.querySelector('.cursor-glow');
-  if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+  const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (cursorGlow && hasFinePointer) {
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
     let currentX = mouseX;
@@ -74,40 +77,42 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-     4. 3D BENTO CARD TILT EFFECT (REQUESTANIMATIONFRAME THROTTLED)
+     4. 3D BENTO CARD TILT EFFECT (DESKTOP HOVER POINTER ONLY)
      -------------------------------------------------------------------------- */
-  const tiltCards = document.querySelectorAll('.tilt-card');
-  tiltCards.forEach((card) => {
-    let tiltRaf = null;
+  if (hasFinePointer) {
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    tiltCards.forEach((card) => {
+      let tiltRaf = null;
 
-    card.addEventListener('mousemove', (e) => {
-      if (tiltRaf) return;
-      const clientX = e.clientX;
-      const clientY = e.clientY;
+      card.addEventListener('mousemove', (e) => {
+        if (tiltRaf) return;
+        const clientX = e.clientX;
+        const clientY = e.clientY;
 
-      tiltRaf = requestAnimationFrame(() => {
-        const rect = card.getBoundingClientRect();
-        const x = clientX - rect.left;
-        const y = clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        tiltRaf = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = clientX - rect.left;
+          const y = clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * -6;
-        const rotateY = ((x - centerX) / centerX) * 6;
+          const rotateX = ((y - centerY) / centerY) * -6;
+          const rotateY = ((x - centerX) / centerX) * 6;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-        tiltRaf = null;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+          tiltRaf = null;
+        });
+      }, { passive: true });
+
+      card.addEventListener('mouseleave', () => {
+        if (tiltRaf) {
+          cancelAnimationFrame(tiltRaf);
+          tiltRaf = null;
+        }
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
       });
-    }, { passive: true });
-
-    card.addEventListener('mouseleave', () => {
-      if (tiltRaf) {
-        cancelAnimationFrame(tiltRaf);
-        tiltRaf = null;
-      }
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
     });
-  });
+  }
 
   /* --------------------------------------------------------------------------
      5. SCROLL-TRIGGERED REVEAL OBSERVER
@@ -175,28 +180,35 @@ document.addEventListener('DOMContentLoaded', () => {
     dental: {
       title: 'Aura Dental Studio — Luxury Minimalist Dental',
       url: 'https://aemiraza.github.io/Aura-Dental-Studio/',
-      displayUrl: 'aemiraza.github.io/Aura-Dental-Studio',
-      badge: 'Luxury Healthcare'
+      displayUrl: 'aemiraza.github.io/Aura-Dental-Studio'
     },
     estates: {
       title: 'Vanguard Luxury Estates — Cinematic Real Estate',
       url: 'https://aemiraza.github.io/Vanguard-Luxury-Estates/',
-      displayUrl: 'aemiraza.github.io/Vanguard-Luxury-Estates',
-      badge: 'Ultra-Luxury Real Estate'
+      displayUrl: 'aemiraza.github.io/Vanguard-Luxury-Estates'
     },
     plumbing: {
       title: 'HydroShield 24/7 — Emergency Plumbing Service',
       url: 'https://aemiraza.github.io/HydroShield-Emergency-Plumbing/',
-      displayUrl: 'aemiraza.github.io/HydroShield-Emergency-Plumbing',
-      badge: 'Emergency Services'
+      displayUrl: 'aemiraza.github.io/HydroShield-Emergency-Plumbing'
     },
     cleaning: {
       title: 'Sparkle & Shine — Modern Eco-Cleaning SaaS',
       url: 'https://aemiraza.github.io/Sparkle-Shine-Eco-Cleaning-Co/',
-      displayUrl: 'aemiraza.github.io/Sparkle-Shine-Eco-Cleaning-Co',
-      badge: 'Eco-Living SaaS'
+      displayUrl: 'aemiraza.github.io/Sparkle-Shine-Eco-Cleaning-Co'
     }
   };
+
+  function setDeviceMode(mode) {
+    deviceBtns.forEach((btn) => {
+      btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+    });
+
+    if (viewportFrame) {
+      viewportFrame.className = 'viewport-frame-wrapper';
+      viewportFrame.classList.add(`mode-${mode}`);
+    }
+  }
 
   window.openProjectPreview = function (projectKey) {
     const data = demoProjects[projectKey];
@@ -207,9 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     previewExternalLink.href = data.url;
     previewIframe.src = data.url;
 
-    // Default to desktop view
     setDeviceMode('desktop');
-
     previewModal.classList.add('open');
     document.body.style.overflow = 'hidden';
   };
@@ -233,18 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Device Toggle Buttons (Desktop, Tablet, Mobile)
-  function setDeviceMode(mode) {
-    deviceBtns.forEach((btn) => {
-      btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
-    });
-
-    if (viewportFrame) {
-      viewportFrame.className = 'viewport-frame-wrapper';
-      viewportFrame.classList.add(`mode-${mode}`);
-    }
-  }
-
   deviceBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const mode = btn.getAttribute('data-mode');
@@ -252,163 +250,162 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Global ESC key listener
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeProjectPreview();
-      closeBookingModal();
     }
   });
 
   /* --------------------------------------------------------------------------
-     8. STRATEGY CALL BOOKING MODAL & CALENDAR SLOTS
-     -------------------------------------------------------------------------- */
-  const bookingModal = document.getElementById('booking-modal');
-  const bookingCloseBtn = document.getElementById('booking-close-btn');
-  const timeSlotBtns = document.querySelectorAll('.time-slot-btn');
-
-  window.openBookingModal = function () {
-    if (!bookingModal) return;
-    bookingModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  function closeBookingModal() {
-    if (!bookingModal) return;
-    bookingModal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  if (bookingCloseBtn) {
-    bookingCloseBtn.addEventListener('click', closeBookingModal);
-  }
-
-  if (bookingModal) {
-    bookingModal.addEventListener('click', (e) => {
-      if (e.target === bookingModal) {
-        closeBookingModal();
-      }
-    });
-  }
-
-  timeSlotBtns.forEach((slot) => {
-    slot.addEventListener('click', () => {
-      timeSlotBtns.forEach((s) => s.classList.remove('active'));
-      slot.classList.add('active');
-    });
-  });
-
-  const confirmCallBtn = document.getElementById('confirm-call-btn');
-  if (confirmCallBtn) {
-    confirmCallBtn.addEventListener('click', () => {
-      const activeSlot = document.querySelector('.time-slot-btn.active');
-      const selectedTime = activeSlot ? activeSlot.innerText : 'Tomorrow 2:00 PM';
-      const bookingEmailInput = document.getElementById('booking-email');
-      const clientEmail = bookingEmailInput ? bookingEmailInput.value.trim() : '';
-
-      confirmCallBtn.innerHTML = `<span>Booking Confirmed! 🚀</span>`;
-      confirmCallBtn.style.background = '#10b981';
-
-      // Dispatch booking notice to aemiansari76@gmail.com
-      fetch('https://formsubmit.co/ajax/aemiansari76@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          type: 'Strategy Call Booking',
-          slot: selectedTime,
-          client_email: clientEmail || 'Not specified',
-          _subject: `New Strategy Call Booked: ${selectedTime} (${clientEmail || 'Direct'})`
-        })
-      }).catch(() => {});
-
-      showToast(`Strategy call locked for ${selectedTime}! Dispatched to aemiansari76@gmail.com`);
-
-      setTimeout(() => {
-        closeBookingModal();
-        confirmCallBtn.innerHTML = `<span>Confirm Strategy Call &rarr;</span>`;
-        confirmCallBtn.style.background = '';
-      }, 1500);
-    });
-  }
-
-  /* --------------------------------------------------------------------------
-     9. INTERACTIVE LEAD CAPTURE FORM CONTROLLER (SENDS TO aemiansari76@gmail.com)
+     8. LEAD CAPTURE FORM VALIDATION, SPINNER & SUBMISSION CONTROLLER
      -------------------------------------------------------------------------- */
   const leadForm = document.getElementById('lead-capture-form');
-  const formSuccess = document.getElementById('form-success-overlay');
-  const resetFormBtn = document.getElementById('reset-form-btn');
+  const successBanner = document.getElementById('form-success-banner');
+  const errorBanner = document.getElementById('form-error-banner');
+  const errorSummary = document.getElementById('form-error-summary');
+  const submitBtn = document.getElementById('lead-submit-btn');
 
-  if (leadForm) {
-    leadForm.addEventListener('submit', (e) => {
+  if (leadForm && submitBtn) {
+    const nameInput = document.getElementById('lead-name');
+    const businessInput = document.getElementById('lead-business');
+    const emailInput = document.getElementById('lead-email');
+    const budgetSelect = document.getElementById('lead-budget');
+    const detailsInput = document.getElementById('lead-details');
+
+    const fields = [
+      {
+        el: nameInput,
+        label: 'Name',
+        validate: (val) => val.trim().length > 0
+      },
+      {
+        el: businessInput,
+        label: 'Business Name',
+        validate: (val) => val.trim().length > 0
+      },
+      {
+        el: emailInput,
+        label: 'Email',
+        validate: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val.trim())
+      },
+      {
+        el: budgetSelect,
+        label: 'Project Budget',
+        validate: (val) => val.trim().length > 0
+      },
+      {
+        el: detailsInput,
+        label: 'Message',
+        validate: (val) => val.trim().length > 0
+      }
+    ];
+
+    function setFieldError(fieldEl, hasError) {
+      if (!fieldEl) return;
+      const group = fieldEl.closest('.form-group');
+      if (group) {
+        group.classList.toggle('has-error', hasError);
+      }
+      fieldEl.setAttribute('aria-invalid', String(hasError));
+    }
+
+    fields.forEach(({ el }) => {
+      if (!el) return;
+      const eventName = el.tagName === 'SELECT' ? 'change' : 'input';
+      el.addEventListener(eventName, () => {
+        setFieldError(el, false);
+        if (errorBanner && !leadForm.querySelector('.form-group.has-error')) {
+          errorBanner.hidden = true;
+        }
+      });
+    });
+
+    leadForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const nameInput = document.getElementById('lead-name');
-      const emailInput = document.getElementById('lead-email');
-      const websiteInput = document.getElementById('lead-website');
-      const detailsInput = document.getElementById('lead-details');
-      const selectedBudget = document.querySelector('input[name="project-budget"]:checked');
-      const submitBtn = document.getElementById('lead-submit-btn');
+      if (successBanner) successBanner.hidden = true;
 
-      if (!nameInput.value.trim() || !emailInput.value.trim()) {
-        showToast('Please fill in your name and email address.');
+      const invalidFields = [];
+      fields.forEach((field) => {
+        if (!field.el) return;
+        const isValid = field.validate(field.el.value);
+        setFieldError(field.el, !isValid);
+        if (!isValid) {
+          invalidFields.push(field);
+        }
+      });
+
+      if (invalidFields.length > 0) {
+        if (errorBanner && errorSummary) {
+          const names = invalidFields.map((f) => f.label).join(', ');
+          errorSummary.textContent = `Missing or invalid: ${names}.`;
+          errorBanner.hidden = false;
+        }
+        invalidFields[0].el.focus();
         return;
       }
 
-      // Loading state
+      if (errorBanner) errorBanner.hidden = true;
+
+      // Loading state with visible ring spinner
+      const originalBtnMarkup = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span class="loading-spinner"></span> <span>Dispatching to Razi...</span>`;
+      submitBtn.innerHTML = `<span class="loading-spinner" aria-hidden="true"></span><span>Sending Inquiry...</span>`;
 
       const payload = {
         name: nameInput.value.trim(),
+        business_name: businessInput.value.trim(),
         email: emailInput.value.trim(),
-        website: websiteInput ? websiteInput.value.trim() : 'N/A',
-        budget: selectedBudget ? selectedBudget.value : 'growth ($3,000 - $6,000)',
-        message: detailsInput ? detailsInput.value.trim() : 'No extra notes',
-        _subject: `New Lead Inquiry from ${nameInput.value.trim()} (${emailInput.value.trim()})`,
+        budget: budgetSelect.value,
+        message: detailsInput.value.trim(),
+        _subject: `New Project Inquiry from ${nameInput.value.trim()} — ${businessInput.value.trim()}`,
         _template: 'table'
       };
 
-      // Dispatch to owner's Gmail: aemiansari76@gmail.com
-      fetch('https://formsubmit.co/ajax/aemiansari76@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-      .then((res) => res.json())
-      .then(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `<span>🚀 Launch Project Inquiry</span>`;
-        if (formSuccess) formSuccess.classList.add('visible');
-        showToast('Inquiry sent to aemiansari76@gmail.com! Razi will reply within 35 minutes.');
-      })
-      .catch(() => {
-        // Fallback: direct mailto trigger so no lead is ever lost
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `<span>🚀 Launch Project Inquiry</span>`;
-        if (formSuccess) formSuccess.classList.add('visible');
+      const rawAction = (leadForm.getAttribute('action') || '').trim();
+      const hasCustomFormspree =
+        rawAction.startsWith('https://') && !rawAction.includes('YOUR_FORM_ID');
 
-        const mailSubject = encodeURIComponent(`Project Inquiry: ${payload.name}`);
-        const mailBody = encodeURIComponent(
-          `Name: ${payload.name}\nEmail: ${payload.email}\nWebsite: ${payload.website}\nBudget: ${payload.budget}\n\nProject Goals:\n${payload.message}`
-        );
-        window.open(`mailto:aemiansari76@gmail.com?subject=${mailSubject}&body=${mailBody}`, '_blank');
-        showToast('Opening email client for aemiansari76@gmail.com...');
-      });
-    });
-  }
+      const endpoint = hasCustomFormspree
+        ? rawAction
+        : 'https://formsubmit.co/ajax/aemiansari76@gmail.com';
 
-  if (resetFormBtn && formSuccess && leadForm) {
-    resetFormBtn.addEventListener('click', () => {
-      formSuccess.classList.remove('visible');
+      const minSpinnerWait = new Promise((resolve) => setTimeout(resolve, 650));
+      const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      const timeoutId = controller ? setTimeout(() => controller.abort(), 3500) : null;
+
+      try {
+        const request = fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload),
+          signal: controller ? controller.signal : undefined
+        })
+          .catch(() => null)
+          .finally(() => {
+            if (timeoutId) clearTimeout(timeoutId);
+          });
+
+        await Promise.all([request, minSpinnerWait]);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnMarkup;
+      }
+
       leadForm.reset();
+      if (successBanner) {
+        successBanner.hidden = false;
+        successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      showToast('Message received — Razi will get back to you within 24 hours');
     });
   }
 
   /* --------------------------------------------------------------------------
-     10. TOAST NOTIFICATION UTILITY
+     9. TOAST NOTIFICATION UTILITY
      -------------------------------------------------------------------------- */
   function showToast(message) {
     let container = document.querySelector('.toast-container');
@@ -427,29 +424,33 @@ document.addEventListener('DOMContentLoaded', () => {
       toast.style.opacity = '0';
       toast.style.transform = 'translateY(10px)';
       setTimeout(() => toast.remove(), 300);
-    }, 3200);
+    }, 3400);
   }
 
   window.showToast = showToast;
 
   /* --------------------------------------------------------------------------
-     11. ONE-CLICK EMAIL COPY SHORTCUT (COPIES aemiansari76@gmail.com)
+     10. ONE-CLICK EMAIL COPY SHORTCUT (COPIES aemiansari76@gmail.com)
      -------------------------------------------------------------------------- */
   const copyEmailBtns = document.querySelectorAll('.copy-email-trigger');
   copyEmailBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const email = 'aemiansari76@gmail.com';
-      navigator.clipboard.writeText(email).then(() => {
-        showToast('Copied aemiansari76@gmail.com to clipboard!');
-      }).catch(() => {
-        showToast('aemiansari76@gmail.com');
-      });
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast('Copied aemiansari76@gmail.com to clipboard!');
+        }).catch(() => {
+          showToast(email);
+        });
+      } else {
+        showToast(email);
+      }
     });
   });
 
   /* --------------------------------------------------------------------------
-     12. REAL-TIME LOCAL TIME CLOCK IN FOOTER
+     11. REAL-TIME LOCAL TIME CLOCK IN FOOTER
      -------------------------------------------------------------------------- */
   function updateLocalClock() {
     const timeDisplay = document.getElementById('live-local-time');

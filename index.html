@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/razi-avatar.jpg" />
 
-  <link rel="icon" type="image/jpeg" href="assets/images/razi-logo-emoji.jpg" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='10' y1='10' x2='38' y2='38' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%2306B6D4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1' y='1' width='46' height='46' rx='12.5' fill='%230E0E14' stroke='url(%23g)' stroke-opacity='0.7' stroke-width='1.5'/%3E%3Cpath d='M14.5 34.5V17.2L18 13.7H26L33.8 19.5L24.2 25.2H19.4' stroke='url(%23g)' stroke-width='2.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M24.2 25.2L33 34.5' stroke='url(%23g)' stroke-width='2.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M35.2 9.8C35.2 11.7 36.2 12.7 38.1 12.7C36.2 12.7 35.2 13.7 35.2 15.6C35.2 13.7 34.2 12.7 32.3 12.7C34.2 12.7 35.2 11.7 35.2 9.8Z' fill='%2306B6D4'/%3E%3C/svg%3E" />
 
   <!-- Google Fonts: Outfit (Luxury Geometric Display), Inter (Clean Editorial Body), JetBrains Mono (Tech Code) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,8 +47,28 @@
         
         <!-- Logo -->
         <a href="#hero" class="brand-logo" aria-label="Razi Web Studio Home">
-          <div class="brand-logo-emblem emoji-emblem">
-            <img src="assets/images/razi-logo-emoji.jpg" alt="Razi Web Studio Logo" class="brand-logo-icon" />
+          <div class="brand-logo-emblem svg-monogram-emblem" aria-hidden="true">
+            <svg class="brand-monogram-svg" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="razi-cyber-grad-hdr" x1="10" y1="10" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#6366F1" />
+                  <stop offset="100%" stop-color="#06B6D4" />
+                </linearGradient>
+                <linearGradient id="razi-rim-grad-hdr" x1="2" y1="2" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#6366F1" stop-opacity="0.55" />
+                  <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.45" />
+                </linearGradient>
+                <radialGradient id="razi-obsidian-glow-hdr" cx="28%" cy="22%" r="75%">
+                  <stop offset="0%" stop-color="#6366F1" stop-opacity="0.16" />
+                  <stop offset="55%" stop-color="#0E0E14" stop-opacity="0.88" />
+                  <stop offset="100%" stop-color="#0E0E14" stop-opacity="0.96" />
+                </radialGradient>
+              </defs>
+              <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="12.5" fill="url(#razi-obsidian-glow-hdr)" stroke="url(#razi-rim-grad-hdr)" stroke-width="1" />
+              <path d="M14.5 34.5V17.2L18 13.7H26L33.8 19.5L24.2 25.2H19.4" stroke="url(#razi-cyber-grad-hdr)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M24.2 25.2L33 34.5" stroke="url(#razi-cyber-grad-hdr)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M35.2 9.8C35.2 11.7 36.2 12.7 38.1 12.7C36.2 12.7 35.2 13.7 35.2 15.6C35.2 13.7 34.2 12.7 32.3 12.7C34.2 12.7 35.2 11.7 35.2 9.8Z" fill="#06B6D4" />
+            </svg>
           </div>
           <div class="brand-text-wrap">
             <span class="brand-name">Razi<span class="brand-accent-dot">.</span></span>
@@ -73,12 +93,12 @@
             <span class="status-pulse-dot"></span>
             <span>SPRINT SLOTS OPEN</span>
           </div>
-          <button class="btn btn-primary header-call-btn" onclick="openBookingModal()" aria-label="Book Strategy Call">
+          <a href="#contact" class="btn btn-primary header-call-btn" aria-label="Book Strategy Call — Jump to Project Form">
             <svg class="cta-icon-phone" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span class="cta-text-full">Book Strategy Call</span>
             <span class="cta-text-short">Book Call</span>
             <svg class="cta-icon-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
+          </a>
           <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
             <span></span>
             <span></span>
@@ -100,9 +120,9 @@
       <a href="#guarantee" class="mobile-nav-link">Satisfaction Guarantee</a>
       <a href="#contact" class="mobile-nav-link">Start a Project</a>
       <div style="margin-top: 10px;">
-        <button class="btn btn-primary" style="width: 100%;" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('mobile-toggle').setAttribute('aria-expanded', 'false'); openBookingModal();">
+        <a href="#contact" class="btn btn-primary" style="width: 100%;" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('mobile-toggle').setAttribute('aria-expanded', 'false');">
           <span>Book a Free Strategy Call</span>
-        </button>
+        </a>
       </div>
     </div>
 
@@ -143,10 +163,10 @@
                   <span>View Live Work</span>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
                 </a>
-                <button class="btn btn-secondary btn-lg" onclick="openBookingModal()">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <a href="#contact" class="btn btn-secondary btn-lg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                   <span>Book a Free Strategy Call</span>
-                </button>
+                </a>
               </div>
 
               <!-- Trust & Verification Bar -->
@@ -253,6 +273,7 @@
                   alt="Aura Dental Studio Luxury Minimalist Dental Landing Page" 
                   class="project-img" 
                   loading="lazy" 
+                  decoding="async" 
                 />
                 <div class="project-media-overlay">
                   <div class="project-top-row">
@@ -283,6 +304,11 @@
                   Tailored for high-end aesthetic dentists seeking high-ticket porcelain veneer and clear aligner patients. Includes interactive before-and-after smile transformation visualizer and effortless VIP consultation booking.
                 </p>
 
+                <div class="project-credit-badge">
+                  <span class="credit-dot" aria-hidden="true"></span>
+                  <span>Architected by Razi Web Studio</span>
+                </div>
+
                 <div class="project-metric-row">
                   <div class="pm-item">
                     <span class="pm-value">+142%</span>
@@ -303,7 +329,7 @@
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                     <span>Interactive Live Preview</span>
                   </button>
-                  <a href="https://aemiraza.github.io/Aura-Dental-Studio/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                  <a href="https://aemiraza.github.io/Aura-Dental-Studio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                     <span>Full Site ↗</span>
                   </a>
                 </div>
@@ -318,6 +344,7 @@
                   alt="Vanguard Luxury Estates Cinematic Real Estate Platform" 
                   class="project-img" 
                   loading="lazy" 
+                  decoding="async" 
                 />
                 <div class="project-media-overlay">
                   <div class="project-top-row">
@@ -348,6 +375,11 @@
                   Cinematic digital experience built for premier real estate developers and UHNW brokerages. Features twilight architectural video backgrounds, private vault listing decks, and automated concierge showing requests.
                 </p>
 
+                <div class="project-credit-badge">
+                  <span class="credit-dot" aria-hidden="true"></span>
+                  <span>Architected by Razi Web Studio</span>
+                </div>
+
                 <div class="project-metric-row">
                   <div class="pm-item">
                     <span class="pm-value">$45M+</span>
@@ -368,7 +400,7 @@
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                     <span>Interactive Live Preview</span>
                   </button>
-                  <a href="https://aemiraza.github.io/Vanguard-Luxury-Estates/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                  <a href="https://aemiraza.github.io/Vanguard-Luxury-Estates/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                     <span>Full Site ↗</span>
                   </a>
                 </div>
@@ -383,6 +415,7 @@
                   alt="HydroShield Emergency Plumbing Service Landing Page" 
                   class="project-img" 
                   loading="lazy" 
+                  decoding="async" 
                 />
                 <div class="project-media-overlay">
                   <div class="project-top-row">
@@ -413,6 +446,11 @@
                   High-urgency conversion engine designed to turn burst-pipe panic callers into confirmed appointments in under 60 seconds. Features instant mobile tap-to-dispatch, live fleet radius indicator, and transparent upfront pricing.
                 </p>
 
+                <div class="project-credit-badge">
+                  <span class="credit-dot" aria-hidden="true"></span>
+                  <span>Architected by Razi Web Studio</span>
+                </div>
+
                 <div class="project-metric-row">
                   <div class="pm-item">
                     <span class="pm-value">&lt; 60s</span>
@@ -433,7 +471,7 @@
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                     <span>Interactive Live Preview</span>
                   </button>
-                  <a href="https://aemiraza.github.io/HydroShield-Emergency-Plumbing/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                  <a href="https://aemiraza.github.io/HydroShield-Emergency-Plumbing/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                     <span>Full Site ↗</span>
                   </a>
                 </div>
@@ -448,6 +486,7 @@
                   alt="Sparkle &amp; Shine Eco-Cleaning Landing Page" 
                   class="project-img" 
                   loading="lazy" 
+                  decoding="async" 
                 />
                 <div class="project-media-overlay">
                   <div class="project-top-row">
@@ -478,6 +517,11 @@
                   SaaS-inspired residential cleaning funnel that replaces vague contact forms with a transparent 60-second quote calculator. Boosts recurring bi-weekly and monthly cleaner subscriptions automatically.
                 </p>
 
+                <div class="project-credit-badge">
+                  <span class="credit-dot" aria-hidden="true"></span>
+                  <span>Architected by Razi Web Studio</span>
+                </div>
+
                 <div class="project-metric-row">
                   <div class="pm-item">
                     <span class="pm-value">60 Sec</span>
@@ -498,7 +542,7 @@
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                     <span>Interactive Live Preview</span>
                   </button>
-                  <a href="https://aemiraza.github.io/Sparkle-Shine-Eco-Cleaning-Co/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                  <a href="https://aemiraza.github.io/Sparkle-Shine-Eco-Cleaning-Co/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                     <span>Full Site ↗</span>
                   </a>
                 </div>
@@ -773,18 +817,18 @@
               </p>
 
               <div class="founder-socials-row">
-                <a href="https://wa.me/923147576733" target="_blank" rel="noopener" class="social-circle-btn" title="WhatsApp: +92-314-7576733">
+                <a href="https://wa.me/923147576733" target="_blank" rel="noopener noreferrer" class="social-circle-btn" title="WhatsApp: +92-314-7576733">
                   💬
                 </a>
-                <a href="https://www.instagram.com/Aemi_raza/" target="_blank" rel="noopener" class="social-circle-btn" title="Instagram: @Aemi_raza">
+                <a href="https://www.instagram.com/Aemi_raza/" target="_blank" rel="noopener noreferrer" class="social-circle-btn" title="Instagram: @Aemi_raza">
                   📸
                 </a>
                 <a href="mailto:aemiansari76@gmail.com" class="social-circle-btn copy-email-trigger" title="Email: aemiansari76@gmail.com">
                   ✉️
                 </a>
-                <button class="social-circle-btn" onclick="openBookingModal()" title="Schedule 20-Min Call">
+                <a href="#contact" class="social-circle-btn" aria-label="Jump to Contact Section to Book a Strategy Call" title="Book Strategy Call">
                   📅
-                </button>
+                </a>
               </div>
             </div>
 
@@ -882,96 +926,93 @@
             
             <!-- Left: Interactive Lead Capture Form -->
             <div class="lead-form-card glass-card reveal-init">
-              
-              <!-- Success State Overlay -->
-              <div class="form-success-overlay" id="form-success-overlay">
-                <div class="success-icon-ring">✓</div>
-                <h3 style="font-size: 1.6rem; color: #ffffff; margin-bottom: 10px;">Inquiry Dispatched Successfully!</h3>
-                <p style="font-size: 0.95rem; color: #94a3b8; max-width: 440px; margin-bottom: 24px; line-height: 1.6;">
-                  Thank you! Razi has received your project brief directly. Expect an in-depth video review or response within <strong>35 minutes</strong>.
-                </p>
-                <button class="btn btn-secondary btn-sm" id="reset-form-btn">
-                  <span>Send Another Inquiry</span>
-                </button>
+
+              <!-- Green Success Banner -->
+              <div class="form-status-banner form-success-banner" id="form-success-banner" role="status" aria-live="polite" hidden>
+                <div class="banner-icon-badge success" aria-hidden="true">✓</div>
+                <div class="banner-copy">
+                  <div class="banner-title">Message received — Razi will get back to you within 24 hours</div>
+                  <div class="banner-sub">Your brief has been logged cleanly. Feel free to send another note below if needed.</div>
+                </div>
               </div>
 
-              <form id="lead-capture-form" autocomplete="off">
-                
+              <!-- Red Validation Error Banner -->
+              <div class="form-status-banner form-error-banner" id="form-error-banner" role="alert" aria-live="assertive" hidden>
+                <div class="banner-icon-badge error" aria-hidden="true">!</div>
+                <div class="banner-copy">
+                  <div class="banner-title">Please complete all highlighted required fields</div>
+                  <div class="banner-sub" id="form-error-summary">Fill in the missing details marked in red below to launch your inquiry.</div>
+                </div>
+              </div>
+
+              <!-- Replace YOUR_FORM_ID with your live Formspree form ID when ready -->
+              <form id="lead-capture-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" autocomplete="off" novalidate>
+
                 <div class="form-group-row">
-                  <div class="form-group">
+                  <div class="form-group" data-field-group="name">
                     <label for="lead-name" class="form-label">
-                      <span>Full Name</span>
+                      <span>Name</span>
                       <span class="req">*</span>
                     </label>
                     <input type="text" id="lead-name" name="name" class="form-input" placeholder="e.g. Alex Morgan" required />
+                    <span class="field-error-msg" id="err-lead-name">Please enter your full name.</span>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" data-field-group="business_name">
+                    <label for="lead-business" class="form-label">
+                      <span>Business Name</span>
+                      <span class="req">*</span>
+                    </label>
+                    <input type="text" id="lead-business" name="business_name" class="form-input" placeholder="e.g. Aura Dental Studio" required />
+                    <span class="field-error-msg" id="err-lead-business">Please enter your business or brand name.</span>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group" data-field-group="email">
                     <label for="lead-email" class="form-label">
-                      <span>Email Address</span>
+                      <span>Email</span>
                       <span class="req">*</span>
                     </label>
                     <input type="email" id="lead-email" name="email" class="form-input" placeholder="alex@business.com" required />
+                    <span class="field-error-msg" id="err-lead-email">Please enter a valid email address.</span>
+                  </div>
+
+                  <div class="form-group" data-field-group="budget">
+                    <label for="lead-budget" class="form-label">
+                      <span>Project Budget</span>
+                      <span class="req">*</span>
+                    </label>
+                    <div class="select-wrap">
+                      <select id="lead-budget" name="budget" class="form-input form-select" required>
+                        <option value="" disabled selected>Select budget tier...</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $2,500">$1,000 - $2,500</option>
+                        <option value="$2,500+">$2,500+</option>
+                      </select>
+                      <svg class="select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <span class="field-error-msg" id="err-lead-budget">Please select your project budget range.</span>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="lead-website" class="form-label">
-                    <span>Business Website / Industry URL</span>
-                    <span style="color: #64748b;">(Optional)</span>
-                  </label>
-                  <input type="text" id="lead-website" name="website" class="form-input" placeholder="https://yourbrand.com or industry niche" />
-                </div>
-
-                <!-- Project Budget Radio Selector Pills -->
-                <div class="form-group">
-                  <label class="form-label">
-                    <span>Project Investment Range</span>
+                <div class="form-group" data-field-group="message">
+                  <label for="lead-details" class="form-label">
+                    <span>Message</span>
                     <span class="req">*</span>
                   </label>
-                  <div class="budget-pills-grid">
-                    <label class="budget-pill-label">
-                      <input type="radio" name="project-budget" value="starter" />
-                      <div class="budget-pill-box">
-                        <span>$1,500 – $3,000</span>
-                      </div>
-                    </label>
-                    <label class="budget-pill-label">
-                      <input type="radio" name="project-budget" value="growth" checked />
-                      <div class="budget-pill-box">
-                        <span>$3,000 – $6,000</span>
-                      </div>
-                    </label>
-                    <label class="budget-pill-label">
-                      <input type="radio" name="project-budget" value="scale" />
-                      <div class="budget-pill-box">
-                        <span>$6,000 – $12,000</span>
-                      </div>
-                    </label>
-                    <label class="budget-pill-label">
-                      <input type="radio" name="project-budget" value="enterprise" />
-                      <div class="budget-pill-box">
-                        <span>$12,000+ (Custom)</span>
-                      </div>
-                    </label>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="lead-details" class="form-label">
-                    <span>Project Goals &amp; Overview</span>
-                  </label>
-                  <textarea id="lead-details" name="message" class="form-textarea" placeholder="Tell us about your target audience, current bottlenecks, or desired launch timeline..."></textarea>
+                  <textarea id="lead-details" name="message" class="form-textarea" placeholder="Tell us about your business goals, target audience, or desired launch timeline..." required></textarea>
+                  <span class="field-error-msg" id="err-lead-details">Please include a brief message about your project.</span>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg" id="lead-submit-btn" style="width: 100%;">
-                  <span>🚀 Launch Project Inquiry</span>
+                  <span>Start a Project &rarr;</span>
                 </button>
 
                 <div class="form-footer-guarantee">
                   <span>🔒 100% Privacy Guaranteed</span>
                   <span>&bull;</span>
-                  <span>⚡ Same-Day Founder Response</span>
+                  <span>⚡ Reply Within 24 Hours</span>
                   <span>&bull;</span>
                   <span>📅 Free 20-Min Strategy Call</span>
                 </div>
@@ -985,7 +1026,7 @@
               <div class="direct-card-header">
                 <h3>Prefer Immediate Contact?</h3>
                 <p>
-                  Connect directly with founder Razi across your preferred channel. We typically respond within 35 minutes during business hours.
+                  Connect directly with founder Razi across your preferred channel. Expect a personal reply within 24 hours (typically faster via WhatsApp).
                 </p>
               </div>
 
@@ -993,7 +1034,7 @@
               <div class="direct-channels-list">
                 
                 <!-- WhatsApp Direct -->
-                <a href="https://wa.me/923147576733" target="_blank" rel="noopener" class="channel-item-link" title="Direct WhatsApp Chat">
+                <a href="https://wa.me/923147576733" target="_blank" rel="noopener noreferrer" class="channel-item-link" title="Direct WhatsApp Chat">
                   <div class="channel-left">
                     <div class="channel-icon whatsapp">💬</div>
                     <div class="channel-meta">
@@ -1005,7 +1046,7 @@
                 </a>
 
                 <!-- Instagram Direct -->
-                <a href="https://www.instagram.com/Aemi_raza/" target="_blank" rel="noopener" class="channel-item-link" title="Instagram Profile">
+                <a href="https://www.instagram.com/Aemi_raza/" target="_blank" rel="noopener noreferrer" class="channel-item-link" title="Instagram Profile">
                   <div class="channel-left">
                     <div class="channel-icon instagram">📸</div>
                     <div class="channel-meta">
@@ -1037,11 +1078,11 @@
                   <span>Schedule a 20-Min Strategy Session</span>
                 </h4>
                 <p>
-                  Have a complex requirement? Let's hop on a fast Zoom call to review your current site and map out your custom 2026 conversion roadmap.
+                  Have a complex requirement? Book a live discovery slot on Cal.com to review your current site and map out your 2026 conversion roadmap.
                 </p>
-                <button class="btn btn-secondary btn-sm" onclick="openBookingModal()" style="align-self: flex-start;">
-                  <span>Select Time Slot &rarr;</span>
-                </button>
+                <a href="https://cal.com/razi-web-studio/strategy-call" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="align-self: flex-start;" aria-label="Book a 20-minute strategy call on Cal.com (opens in a new tab)">
+                  <span>Book on Cal.com ↗</span>
+                </a>
               </div>
 
             </div>
@@ -1061,8 +1102,28 @@
         
         <div class="footer-top-row">
           <a href="#hero" class="brand-logo" aria-label="Razi Web Studio Home">
-            <div class="brand-logo-emblem emoji-emblem">
-              <img src="assets/images/razi-logo-emoji.jpg" alt="Razi Web Studio Logo" class="brand-logo-icon" />
+            <div class="brand-logo-emblem svg-monogram-emblem" aria-hidden="true">
+              <svg class="brand-monogram-svg" viewBox="0 0 48 48" width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="razi-cyber-grad-ftr" x1="10" y1="10" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#6366F1" />
+                    <stop offset="100%" stop-color="#06B6D4" />
+                  </linearGradient>
+                  <linearGradient id="razi-rim-grad-ftr" x1="2" y1="2" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#6366F1" stop-opacity="0.55" />
+                    <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.45" />
+                  </linearGradient>
+                  <radialGradient id="razi-obsidian-glow-ftr" cx="28%" cy="22%" r="75%">
+                    <stop offset="0%" stop-color="#6366F1" stop-opacity="0.16" />
+                    <stop offset="55%" stop-color="#0E0E14" stop-opacity="0.88" />
+                    <stop offset="100%" stop-color="#0E0E14" stop-opacity="0.96" />
+                  </radialGradient>
+                </defs>
+                <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="12.5" fill="url(#razi-obsidian-glow-ftr)" stroke="url(#razi-rim-grad-ftr)" stroke-width="1" />
+                <path d="M14.5 34.5V17.2L18 13.7H26L33.8 19.5L24.2 25.2H19.4" stroke="url(#razi-cyber-grad-ftr)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M24.2 25.2L33 34.5" stroke="url(#razi-cyber-grad-ftr)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M35.2 9.8C35.2 11.7 36.2 12.7 38.1 12.7C36.2 12.7 35.2 13.7 35.2 15.6C35.2 13.7 34.2 12.7 32.3 12.7C34.2 12.7 35.2 11.7 35.2 9.8Z" fill="#06B6D4" />
+              </svg>
             </div>
             <div class="brand-text-wrap">
               <span class="brand-name">Razi<span class="brand-accent-dot">.</span></span>
@@ -1073,7 +1134,7 @@
           <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
             <a href="#work" class="nav-link">Live Work</a>
             <a href="#services" class="nav-link">Capabilities</a>
-            <a href="#why-me" class="nav-link">The Guarantee</a>
+            <a href="#guarantee" class="nav-link">The Guarantee</a>
             <a href="#contact" class="nav-link">Get in Touch</a>
           </div>
         </div>
@@ -1131,7 +1192,7 @@
 
         <!-- Right Modal Actions -->
         <div class="modal-right-actions">
-          <a href="#" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" id="preview-external-link" title="Open full project in new tab">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="preview-external-link" title="Open full project in new tab">
             <span>Launch Full Tab ↗</span>
           </a>
           <button class="modal-close-btn" id="modal-close-btn" aria-label="Close preview modal">
@@ -1154,47 +1215,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-
-  <!-- ======================================================================
-       STRATEGY CALL BOOKING MODAL
-       ====================================================================== -->
-  <div class="booking-modal-backdrop" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
-    <div class="booking-modal-card">
-      <button class="modal-close-btn" id="booking-close-btn" style="position: absolute; top: 20px; right: 20px;" aria-label="Close booking modal">
-        &times;
-      </button>
-
-      <div class="section-eyebrow" style="margin-bottom: 12px;">
-        <span class="dot"></span>
-        <span>FREE 20-MINUTE AUDIT</span>
-      </div>
-      <h3 id="booking-modal-title" style="font-size: 1.5rem; color: #ffffff; margin-bottom: 8px;">
-        Book Your Strategy Call With Razi
-      </h3>
-      <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 20px;">
-        We'll analyze your current landing page, review conversion leakage, and outline an exact high-ROI architecture for your local business.
-      </p>
-
-      <div class="mono-tag" style="color: var(--accent-cyan-bright); margin-bottom: 8px;">Select Desired Sprint Slot:</div>
-      <div class="calendar-slots-grid">
-        <button class="time-slot-btn active">Tomorrow 10:00 AM</button>
-        <button class="time-slot-btn">Tomorrow 2:00 PM</button>
-        <button class="time-slot-btn">Tomorrow 4:30 PM</button>
-        <button class="time-slot-btn">Thursday 11:30 AM</button>
-        <button class="time-slot-btn">Thursday 3:00 PM</button>
-        <button class="time-slot-btn">Friday 1:00 PM</button>
-      </div>
-
-      <div class="form-group" style="margin-top: 14px;">
-        <label class="form-label" for="booking-email">Your Work Email</label>
-        <input type="email" id="booking-email" class="form-input" placeholder="you@business.com" />
-      </div>
-
-      <button class="btn btn-primary" id="confirm-call-btn" style="width: 100%; margin-top: 12px;">
-        <span>Confirm Strategy Call &rarr;</span>
-      </button>
     </div>
   </div>
 

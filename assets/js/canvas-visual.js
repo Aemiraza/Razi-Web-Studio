@@ -1,10 +1,10 @@
 /**
  * RAZI WEB STUDIO — 2026 HIGH-PERFORMANCE 3D CANVAS & AMBIENT VISUAL SYSTEMS
- * Fully Optimized for 60-120 FPS:
+ * Fully Optimized for 60-120 FPS & Touch-Friendly Mobile Scaling:
  * - IntersectionObserver auto-pause when out of view
  * - Zero context shadowBlur overhead
- * - Pre-culled distance checks for particle connections
- * - Mobile-adaptive particle counts
+ * - DPR-safe explicit matrix reset via setTransform
+ * - Touch-scroll friendly hero 3D mesh (never blocks vertical page scroll)
  * - Tab visibility auto-sleep
  */
 
@@ -22,14 +22,18 @@
   const bgCanvas = document.getElementById('ambient-canvas');
   if (bgCanvas) {
     const ctx = bgCanvas.getContext('2d', { alpha: true });
-    let width, height;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let isMobile = window.innerWidth < 768;
     let particles = [];
-    const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 18 : 36;
     let mouse = { x: -1000, y: -1000 };
-    let bgAnimId = null;
+
+    function getTargetParticleCount() {
+      return isMobile ? 16 : 34;
+    }
 
     function resizeBg() {
+      isMobile = window.innerWidth < 768;
       width = bgCanvas.width = window.innerWidth;
       height = bgCanvas.height = window.innerHeight;
     }
@@ -54,15 +58,16 @@
         if (this.x < 0 || this.x > width) this.vx *= -1;
         if (this.y < 0 || this.y > height) this.vy *= -1;
 
-        // Subtle mouse repulsion
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        if (Math.abs(dx) < 120 && Math.abs(dy) < 120) {
-          const distSq = dx * dx + dy * dy;
-          if (distSq < 14400) {
-            const dist = Math.sqrt(distSq);
-            this.x -= (dx / dist) * 1.2;
-            this.y -= (dy / dist) * 1.2;
+        if (!isMobile) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          if (Math.abs(dx) < 120 && Math.abs(dy) < 120) {
+            const distSq = dx * dx + dy * dy;
+            if (distSq < 14400 && distSq > 0.01) {
+              const dist = Math.sqrt(distSq);
+              this.x -= (dx / dist) * 1.1;
+              this.y -= (dy / dist) * 1.1;
+            }
           }
         }
       }
@@ -74,12 +79,16 @@
       }
     }
 
+    function syncParticleCount() {
+      const target = getTargetParticleCount();
+      while (particles.length < target) particles.push(new Particle());
+      if (particles.length > target) particles.length = target;
+    }
+
     function initBg() {
       resizeBg();
       particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
+      syncParticleCount();
     }
 
     const maxDist = 120;
@@ -87,13 +96,12 @@
 
     function animateBg() {
       if (!isPageVisible) {
-        bgAnimId = requestAnimationFrame(animateBg);
+        requestAnimationFrame(animateBg);
         return;
       }
 
       ctx.clearRect(0, 0, width, height);
 
-      // Connect near particles on desktop only (skip on mobile for buttery smooth touch scrolling)
       if (!isMobile) {
         for (let i = 0; i < particles.length; i++) {
           const p1 = particles[i];
@@ -118,18 +126,21 @@
         }
       }
 
-      particles.forEach((p) => {
-        p.update();
-        p.draw();
-      });
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
 
-      bgAnimId = requestAnimationFrame(animateBg);
+      requestAnimationFrame(animateBg);
     }
 
-    let resizeTimer;
+    let bgResizeTimer;
     window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(resizeBg, 150);
+      clearTimeout(bgResizeTimer);
+      bgResizeTimer = setTimeout(() => {
+        resizeBg();
+        syncParticleCount();
+      }, 150);
     }, { passive: true });
 
     window.addEventListener('mousemove', (e) => {
@@ -138,17 +149,19 @@
     }, { passive: true });
 
     initBg();
-    bgAnimId = requestAnimationFrame(animateBg);
+    requestAnimationFrame(animateBg);
   }
 
   /* --------------------------------------------------------------------------
-     2. HERO INTERACTIVE HOLOGRAPHIC 3D SPHERE (GPU ACCELERATED & PAUSED OFFSCREEN)
+     2. HERO INTERACTIVE HOLOGRAPHIC 3D SPHERE (RESPONSIVE & TOUCH-SCROLL SAFE)
      -------------------------------------------------------------------------- */
   const heroCanvas = document.getElementById('hero-interactive-canvas');
   if (heroCanvas) {
     const ctx = heroCanvas.getContext('2d', { alpha: true });
-    let size, cx, cy;
-    let sphereRadius = 135;
+    let size = 320;
+    let cx = 160;
+    let cy = 160;
+    let sphereRadius = 102;
     let points = [];
     const rings = 12;
     const pointsPerRing = 18;
@@ -162,16 +175,24 @@
     let velX = 0.003;
     let velY = 0.006;
     let isDragging = false;
+    let isTouchScrolling = false;
+    let touchStartX = 0;
+    let touchStartY = 0;
     let lastMouseX = 0;
     let lastMouseY = 0;
 
     function resizeHero() {
-      const rect = heroCanvas.getBoundingClientRect();
+      const stageEl = heroCanvas.parentElement;
+      const stageRect = stageEl ? stageEl.getBoundingClientRect() : heroCanvas.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      size = Math.min(rect.width || 380, 480);
-      heroCanvas.width = size * dpr;
-      heroCanvas.height = size * dpr;
-      ctx.scale(dpr, dpr);
+      const viewportCap = Math.max(200, window.innerWidth - 36);
+      const rawWidth = stageRect.width > 0 ? stageRect.width : Math.min(360, viewportCap);
+      size = Math.round(Math.max(200, Math.min(rawWidth, viewportCap, 480)));
+
+      heroCanvas.width = Math.round(size * dpr);
+      heroCanvas.height = Math.round(size * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
       cx = size / 2;
       cy = size / 2;
       sphereRadius = size * 0.32;
@@ -187,7 +208,7 @@
           const y = sphereRadius * Math.sin(phi) * Math.sin(theta);
           const z = sphereRadius * Math.cos(phi);
           const isCyan = (i + j) % 3 === 0;
-          points.push({ x, y, z, origX: x, origY: y, origZ: z, isCyan });
+          points.push({ x, y, z, isCyan });
         }
       }
     }
@@ -197,14 +218,14 @@
       const cosX = Math.cos(rx), sinX = Math.sin(rx);
       const cosZ = Math.cos(rz), sinZ = Math.sin(rz);
 
-      let x1 = p.x * cosY + p.z * sinY;
-      let z1 = -p.x * sinY + p.z * cosY;
+      const x1 = p.x * cosY + p.z * sinY;
+      const z1 = -p.x * sinY + p.z * cosY;
 
-      let y2 = p.y * cosX - z1 * sinX;
-      let z2 = p.y * sinX + z1 * cosX;
+      const y2 = p.y * cosX - z1 * sinX;
+      const z2 = p.y * sinX + z1 * cosX;
 
-      let x3 = x1 * cosZ - y2 * sinZ;
-      let y3 = x1 * sinZ + y2 * cosZ;
+      const x3 = x1 * cosZ - y2 * sinZ;
+      const y3 = x1 * sinZ + y2 * cosZ;
 
       return { x: x3, y: y3, z: z2 };
     }
@@ -229,8 +250,9 @@
         if (Math.abs(velY) < 0.003) velY = 0.006;
       }
 
-      // Central core
-      const corePulse = Math.sin(time * 2) * 8 + 24;
+      // Central core scaled proportionally with sphereRadius
+      const pulseScale = Math.max(0.65, size / 380);
+      const corePulse = (Math.sin(time * 2) * 7 + 22) * pulseScale;
       const coreGrad = ctx.createRadialGradient(cx, cy, 2, cx, cy, corePulse * 1.8);
       coreGrad.addColorStop(0, 'rgba(0, 240, 255, 0.85)');
       coreGrad.addColorStop(0.45, 'rgba(168, 85, 247, 0.4)');
@@ -242,11 +264,11 @@
       ctx.fill();
 
       // Project 3D points
+      const fov = Math.max(300, size * 1.15);
       const transformed = new Array(points.length);
       for (let i = 0; i < points.length; i++) {
         const p = points[i];
         const rotated = rotatePoint(p, rotX, rotY, rotZ);
-        const fov = 420;
         const scale = fov / (fov + rotated.z);
         transformed[i] = {
           projX: cx + rotated.x * scale,
@@ -268,8 +290,8 @@
 
           if (p1 && p2) {
             const alpha = Math.max(0.08, (p1.z + sphereRadius) / (sphereRadius * 2.2));
-            ctx.strokeStyle = i % 2 === 0 
-              ? `rgba(168, 85, 247, ${alpha * 0.4})` 
+            ctx.strokeStyle = i % 2 === 0
+              ? `rgba(168, 85, 247, ${alpha * 0.4})`
               : `rgba(0, 240, 255, ${alpha * 0.35})`;
             ctx.lineWidth = 0.85;
             ctx.moveTo(p1.projX, p1.projY);
@@ -279,13 +301,12 @@
         ctx.stroke();
       }
 
-      // Fast node rendering without context shadowBlur
+      // Node points
       for (let i = 0; i < transformed.length; i++) {
         const p = transformed[i];
         const alpha = Math.max(0.12, (p.z + sphereRadius) / (sphereRadius * 2));
         const nodeRadius = (p.isCyan ? 2.4 : 1.8) * p.scale;
 
-        // Outer glow halo (faster than shadowBlur)
         if (p.z > sphereRadius * 0.3) {
           ctx.beginPath();
           ctx.arc(p.projX, p.projY, nodeRadius * 2, 0, Math.PI * 2);
@@ -307,7 +328,7 @@
       ctx.rotate(rotY * 0.6);
       ctx.scale(1, 0.28);
       ctx.beginPath();
-      ctx.arc(0, 0, sphereRadius * 1.35, 0, Math.PI * 2);
+      ctx.arc(0, 0, sphereRadius * 1.32, 0, Math.PI * 2);
       ctx.strokeStyle = 'rgba(0, 240, 255, 0.4)';
       ctx.lineWidth = 1.2;
       ctx.setLineDash([8, 12]);
@@ -328,7 +349,7 @@
       heroObserver.observe(heroCanvas);
     }
 
-    // Drag / Touch handlers
+    // Desktop mouse drag
     heroCanvas.addEventListener('mousedown', (e) => {
       isDragging = true;
       lastMouseX = e.clientX;
@@ -336,7 +357,7 @@
     });
 
     window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
+      if (!isDragging || isTouchScrolling) return;
       const dx = e.clientX - lastMouseX;
       const dy = e.clientY - lastMouseY;
       rotY += dx * 0.008;
@@ -351,33 +372,50 @@
       isDragging = false;
     });
 
+    // Mobile touch drag: yield immediately to vertical page scrolling
     heroCanvas.addEventListener('touchstart', (e) => {
       if (e.touches.length === 1) {
         isDragging = true;
-        lastMouseX = e.touches[0].clientX;
-        lastMouseY = e.touches[0].clientY;
+        isTouchScrolling = false;
+        touchStartX = lastMouseX = e.touches[0].clientX;
+        touchStartY = lastMouseY = e.touches[0].clientY;
       }
     }, { passive: true });
 
-    window.addEventListener('touchmove', (e) => {
+    heroCanvas.addEventListener('touchmove', (e) => {
       if (!isDragging || e.touches.length !== 1) return;
-      const dx = e.touches[0].clientX - lastMouseX;
-      const dy = e.touches[0].clientY - lastMouseY;
-      rotY += dx * 0.008;
-      rotX += dy * 0.008;
+      const curX = e.touches[0].clientX;
+      const curY = e.touches[0].clientY;
+
+      if (!isTouchScrolling) {
+        const totalDx = Math.abs(curX - touchStartX);
+        const totalDy = Math.abs(curY - touchStartY);
+        if (totalDy > 8 && totalDy > totalDx * 1.2) {
+          isTouchScrolling = true;
+          isDragging = false;
+          return;
+        }
+      }
+
+      const dx = curX - lastMouseX;
+      rotY += dx * 0.009;
       velY = dx * 0.004;
-      velX = dy * 0.004;
-      lastMouseX = e.touches[0].clientX;
-      lastMouseY = e.touches[0].clientY;
+      lastMouseX = curX;
+      lastMouseY = curY;
     }, { passive: true });
 
     window.addEventListener('touchend', () => {
       isDragging = false;
-    });
+      isTouchScrolling = false;
+    }, { passive: true });
 
+    let heroResizeTimer;
     window.addEventListener('resize', () => {
-      resizeHero();
-      initPoints();
+      clearTimeout(heroResizeTimer);
+      heroResizeTimer = setTimeout(() => {
+        resizeHero();
+        initPoints();
+      }, 100);
     }, { passive: true });
 
     resizeHero();
