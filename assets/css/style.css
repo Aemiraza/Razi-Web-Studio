@@ -360,7 +360,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all var(--trans-smooth);
+  transition: transform var(--trans-smooth), box-shadow var(--trans-smooth), background-color var(--trans-smooth), border-color var(--trans-smooth), color var(--trans-smooth);
   position: relative;
   overflow: hidden;
   white-space: nowrap;
@@ -542,59 +542,69 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 1.15;
+  line-height: 1.1;
   text-decoration: none;
 }
 
 .brand-name {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.36rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.025em;
   line-height: 1;
   transition: color var(--trans-fast), text-shadow var(--trans-fast);
 }
 
+.brand-accent-dot {
+  color: var(--accent-cyan-neon);
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.75);
+}
+
 .brand-logo:hover .brand-name {
-  text-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
 }
 
 .brand-sub {
   font-family: var(--font-heading);
-  font-size: 0.6rem;
+  font-size: 0.56rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--accent-cyan-bright);
-  line-height: 1;
+  background: linear-gradient(90deg, #c084fc 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
   margin-top: 3px;
-  transition: color var(--trans-fast), text-shadow var(--trans-fast);
+  transition: filter var(--trans-fast);
 }
 
 .brand-logo:hover .brand-sub {
-  color: var(--accent-cyan-neon);
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+  filter: brightness(1.2);
 }
 
 /* Header Action Call Button */
 .header-call-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 9px 18px;
   font-size: 0.88rem;
   font-weight: 600;
+  line-height: 1;
   white-space: nowrap;
   flex-shrink: 0;
   border-radius: var(--radius-full);
 }
 
-.header-call-btn .cta-text-full {
-  display: inline;
+.header-call-btn .cta-text-full,
+.header-call-btn .cta-icon-arrow {
+  display: inline-flex;
 }
 
-.header-call-btn .cta-text-short {
+.header-call-btn .cta-text-short,
+.header-call-btn .cta-icon-phone {
   display: none;
 }
 
@@ -689,7 +699,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile Toggle */
 .mobile-toggle {
   display: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-glass);
   width: 42px;
   height: 42px;
@@ -700,14 +710,35 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   flex-direction: column;
   gap: 5px;
+  transition: background-color var(--trans-fast), border-color var(--trans-fast);
+}
+
+.mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-cyan-bright);
 }
 
 .mobile-toggle span {
   display: block;
-  width: 20px;
+  width: 18px;
   height: 2px;
   background-color: #ffffff;
-  transition: all var(--trans-fast);
+  border-radius: 2px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.mobile-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 @media (max-width: 992px) {
@@ -716,6 +747,9 @@ h1, h2, h3, h4, h5, h6 {
   }
   .status-badge {
     display: none;
+  }
+  .cursor-glow {
+    display: none !important;
   }
   .mobile-toggle {
     display: flex;
@@ -738,7 +772,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-120%);
   opacity: 0;
   pointer-events: none;
-  transition: all var(--trans-smooth);
+  transition: transform var(--trans-smooth), opacity var(--trans-smooth);
   z-index: 99;
 }
 
@@ -1139,7 +1173,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   transform: translate(-50%, -50%) scale(0.85);
   opacity: 0;
-  transition: all var(--trans-smooth);
+  transition: transform var(--trans-smooth), opacity var(--trans-smooth);
   pointer-events: auto;
   z-index: 5;
 }
@@ -1505,7 +1539,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: all var(--trans-smooth);
+  transition: transform var(--trans-smooth), box-shadow var(--trans-smooth), background-color var(--trans-smooth), border-color var(--trans-smooth), color var(--trans-smooth);
 }
 
 .metric-pill-card:hover {
@@ -2005,6 +2039,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: 16px 20px;
   border-radius: var(--radius-md);
   background: rgba(8, 8, 12, 0.7);
@@ -2024,11 +2059,14 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
+  flex: 1;
 }
 
 .channel-icon {
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -2060,6 +2098,8 @@ h1, h2, h3, h4, h5, h6 {
 .channel-meta {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  flex: 1;
 }
 
 .channel-name {
@@ -2072,6 +2112,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: #64748b;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Strategy Call Booking Box */
@@ -2473,9 +2515,9 @@ html, body {
     border-bottom: 1px solid var(--border-subtle);
   }
 
-  .header-inner {
-    padding-left: 14px;
-    padding-right: 14px;
+  .container.header-inner {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .brand-logo {
@@ -2489,13 +2531,13 @@ html, body {
   }
 
   .brand-name {
-    font-size: 1.08rem;
-    letter-spacing: 0.03em;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
   }
 
   .brand-sub {
-    font-size: 0.52rem;
-    letter-spacing: 0.18em;
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
     margin-top: 2px;
   }
 
@@ -2507,7 +2549,8 @@ html, body {
   }
 
   .header-call-btn {
-    padding: 7px 13px;
+    height: 38px;
+    padding: 0 14px;
     font-size: 0.8rem;
     font-weight: 600;
     gap: 6px;
@@ -2515,12 +2558,14 @@ html, body {
     box-shadow: 0 2px 14px -2px rgba(139, 92, 246, 0.45);
   }
 
-  .header-call-btn .cta-text-full {
+  .header-call-btn .cta-text-full,
+  .header-call-btn .cta-icon-arrow {
     display: none;
   }
 
-  .header-call-btn .cta-text-short {
-    display: inline;
+  .header-call-btn .cta-text-short,
+  .header-call-btn .cta-icon-phone {
+    display: inline-flex;
   }
 
   .mobile-toggle {
@@ -2836,13 +2881,13 @@ html, body {
 }
 
 @media (max-width: 380px) {
-  .header-inner {
-    padding-left: 10px;
-    padding-right: 10px;
+  .container.header-inner {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .brand-logo {
-    gap: 7px;
+    gap: 8px;
   }
 
   .brand-logo-emblem {
@@ -2851,23 +2896,24 @@ html, body {
   }
 
   .brand-name {
-    font-size: 0.98rem;
-    letter-spacing: 0.02em;
+    font-size: 1.04rem;
+    letter-spacing: -0.02em;
   }
 
   .brand-sub {
-    font-size: 0.46rem;
-    letter-spacing: 0.14em;
+    font-size: 0.45rem;
+    letter-spacing: 0.16em;
   }
 
   .header-actions {
-    gap: 6px;
+    gap: 8px;
   }
 
   .header-call-btn {
-    padding: 6px 10px;
-    font-size: 0.74rem;
-    gap: 4px;
+    height: 34px;
+    padding: 0 11px;
+    font-size: 0.76rem;
+    gap: 5px;
   }
 
   .header-call-btn svg {
