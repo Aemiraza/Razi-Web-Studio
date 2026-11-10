@@ -1,0 +1,17 @@
+# Auto-sync local scripts, logs, and shortcuts (kept local)
+.auto-sync/
+Start-Auto-Sync.bat
+Stop-Auto-Sync.bat
+
+# OS & Editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+.vscode/
+.idea/
+node_modules/
